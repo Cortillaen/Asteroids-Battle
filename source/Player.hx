@@ -41,6 +41,18 @@ class Player extends FlxSprite {
 	override public function update(elapsed:Float) {
 		if (FlxG.keys.anyPressed(FORWARDKEYS)) {
 			//acceleration.y += ACCELCHANGE;
+	private function switchSides() {
+		if (x < -20) {
+			x = 640;
+		}
+		else if (x > 640) {
+			x = -20;
+		}
+		if (y < -20) {
+			y = 480;
+		}
+		else if (y > 480) {
+			y = -20;
 		}
 		if (FlxG.keys.anyPressed(LEFTKEYS)) {
 			if (!FlxG.keys.anyPressed(RIGHTKEYS)) {
@@ -58,6 +70,6 @@ class Player extends FlxSprite {
 			acceleration.rotate(FlxPoint.weak(0, 0), angle);
 		}
 		super.update(elapsed);
-		//if(velocity
+		switchSides();
 	}
 }
