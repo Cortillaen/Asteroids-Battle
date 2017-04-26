@@ -1,9 +1,9 @@
 package;
 
 import flixel.FlxG;
+import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import flixel.input.keyboard.FlxKey;
-import flixel.math.FlxVector;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
 /**
@@ -12,17 +12,14 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
  */
 class Player extends FlxSprite {
 	//operation variables
-	static private var MAXVELOCITY(default, never):Float = 50;
-	static private var ACCELCHANGE(default, never):Float = 5;
-	static private var ROTATION(default, never):Float = 5;
-	//private var vector:
+	static private var ACCEL(default, never):Float = 60;
+	static private var ROTATION_RATE(default, never):Float = 3;
 	
 	private var forwardKeys:Array<FlxKey>;
 	private var leftKeys:Array<FlxKey>;
 	private var rightKeys:Array<FlxKey>;
 	private var shootKeys:Array<FlxKey>;
 	
-	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) {
 	public function new(?X:Float=0, ?Y:Float=0, Keys:Array<Array<FlxKey>>, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
 		if (SimpleGraphic == null) {
@@ -32,15 +29,14 @@ class Player extends FlxSprite {
 		leftKeys = Keys[1];
 		rightKeys = Keys[2];
 		shootKeys = Keys[3];
+		antialiasing = true;
+		//centerOffsets();
 	}
 	
 	private function processVelocity() {
 		
 	}
 	
-	override public function update(elapsed:Float) {
-		if (FlxG.keys.anyPressed(FORWARDKEYS)) {
-			//acceleration.y += ACCELCHANGE;
 	private function switchSides() {
 		if (x < -20) {
 			x = 640;
@@ -54,9 +50,10 @@ class Player extends FlxSprite {
 		else if (y > 480) {
 			y = -20;
 		}
-		if (FlxG.keys.anyPressed(LEFTKEYS)) {
-			if (!FlxG.keys.anyPressed(RIGHTKEYS)) {
-				angle -= ROTATION;
+	}
+	
+	override public function update(elapsed:Float) {
+		acceleration.set(); //defaults to 0,0
 		if (FlxG.keys.anyPressed(leftKeys)) {
 			if (!FlxG.keys.anyPressed(rightKeys)) {
 				angle -= ROTATION_RATE;
