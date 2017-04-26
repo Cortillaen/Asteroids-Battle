@@ -17,16 +17,21 @@ class Player extends FlxSprite {
 	static private var ROTATION(default, never):Float = 5;
 	//private var vector:
 	
-	static private var FORWARDKEYS(default, never):Array<FlxKey> = [FlxKey.W];
-	static private var LEFTKEYS(default, never):Array<FlxKey> = [FlxKey.A];
-	static private var RIGHTKEYS(default, never):Array<FlxKey> = [FlxKey.D];
-	static private var SHOOTKEYS(default, never):Array<FlxKey> = [FlxKey.CONTROL, FlxKey.SPACE];
+	private var forwardKeys:Array<FlxKey>;
+	private var leftKeys:Array<FlxKey>;
+	private var rightKeys:Array<FlxKey>;
+	private var shootKeys:Array<FlxKey>;
 	
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) {
+	public function new(?X:Float=0, ?Y:Float=0, Keys:Array<Array<FlxKey>>, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
 		if (SimpleGraphic == null) {
 			makeGraphic(20, 20);
 		}
+		forwardKeys = Keys[0];
+		leftKeys = Keys[1];
+		rightKeys = Keys[2];
+		shootKeys = Keys[3];
 	}
 	
 	private function processVelocity() {
@@ -40,10 +45,17 @@ class Player extends FlxSprite {
 		if (FlxG.keys.anyPressed(LEFTKEYS)) {
 			if (!FlxG.keys.anyPressed(RIGHTKEYS)) {
 				angle -= ROTATION;
+		if (FlxG.keys.anyPressed(leftKeys)) {
+			if (!FlxG.keys.anyPressed(rightKeys)) {
+				angle -= ROTATION_RATE;
 			}
 		}
-		else if (FlxG.keys.anyPressed(RIGHTKEYS)) {
-			angle += ROTATION;
+		else if (FlxG.keys.anyPressed(rightKeys)) {
+			angle += ROTATION_RATE;
+		}
+		if (FlxG.keys.anyPressed(forwardKeys)) {
+			acceleration.set(ACCEL, 0);
+			acceleration.rotate(FlxPoint.weak(0, 0), angle);
 		}
 		super.update(elapsed);
 		//if(velocity
