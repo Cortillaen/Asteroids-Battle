@@ -1,9 +1,9 @@
 package;
 
 import flixel.FlxG;
+import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import flixel.input.keyboard.FlxKey;
-import flixel.math.FlxVector;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
 /**
@@ -12,40 +12,61 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
  */
 class Player extends FlxSprite {
 	//operation variables
-	static private var MAXVELOCITY(default, never):Float = 50;
-	static private var ACCELCHANGE(default, never):Float = 5;
-	static private var ROTATION(default, never):Float = 5;
-	//private var vector:
+	static private var ACCEL(default, never):Float = 60;
+	static private var ROTATION_RATE(default, never):Float = 3;
 	
-	static private var FORWARDKEYS(default, never):Array<FlxKey> = [FlxKey.W];
-	static private var LEFTKEYS(default, never):Array<FlxKey> = [FlxKey.A];
-	static private var RIGHTKEYS(default, never):Array<FlxKey> = [FlxKey.D];
-	static private var SHOOTKEYS(default, never):Array<FlxKey> = [FlxKey.CONTROL, FlxKey.SPACE];
+	private var forwardKeys:Array<FlxKey>;
+	private var leftKeys:Array<FlxKey>;
+	private var rightKeys:Array<FlxKey>;
+	private var shootKeys:Array<FlxKey>;
 	
-	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) {
+	public function new(?X:Float=0, ?Y:Float=0, Keys:Array<Array<FlxKey>>, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
 		if (SimpleGraphic == null) {
 			makeGraphic(20, 20);
 		}
+		forwardKeys = Keys[0];
+		leftKeys = Keys[1];
+		rightKeys = Keys[2];
+		shootKeys = Keys[3];
+		antialiasing = true;
+		//centerOffsets();
 	}
 	
 	private function processVelocity() {
 		
 	}
 	
-	override public function update(elapsed:Float) {
-		if (FlxG.keys.anyPressed(FORWARDKEYS)) {
-			//acceleration.y += ACCELCHANGE;
+	private function switchSides() {
+		if (x < -20) {
+			x = 640;
 		}
-		if (FlxG.keys.anyPressed(LEFTKEYS)) {
-			if (!FlxG.keys.anyPressed(RIGHTKEYS)) {
-				angle -= ROTATION;
+		else if (x > 640) {
+			x = -20;
+		}
+		if (y < -20) {
+			y = 480;
+		}
+		else if (y > 480) {
+			y = -20;
+		}
+	}
+	
+	override public function update(elapsed:Float) {
+		acceleration.set(); //defaults to 0,0
+		if (FlxG.keys.anyPressed(leftKeys)) {
+			if (!FlxG.keys.anyPressed(rightKeys)) {
+				angle -= ROTATION_RATE;
 			}
 		}
-		else if (FlxG.keys.anyPressed(RIGHTKEYS)) {
-			angle += ROTATION;
+		else if (FlxG.keys.anyPressed(rightKeys)) {
+			angle += ROTATION_RATE;
+		}
+		if (FlxG.keys.anyPressed(forwardKeys)) {
+			acceleration.set(ACCEL, 0);
+			acceleration.rotate(FlxPoint.weak(0, 0), angle);
 		}
 		super.update(elapsed);
-		//if(velocity
+		switchSides();
 	}
 }
