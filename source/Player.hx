@@ -1,10 +1,12 @@
 package;
 
 import flixel.FlxG;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import flixel.input.keyboard.FlxKey;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import flixel.util.FlxColor;
 
 /**
  * Player object class
@@ -14,30 +16,30 @@ class Player extends FlxSprite {
 	//operation variables
 	static private var ACCEL(default, never):Float = 60;
 	static private var ROTATION_RATE(default, never):Float = 3;
+	static private var BULLET_OFFSET(default, never):Float = 10;
 	
+	public var playerColor:FlxColor;
 	private var forwardKeys:Array<FlxKey>;
 	private var leftKeys:Array<FlxKey>;
 	private var rightKeys:Array<FlxKey>;
 	private var shootKeys:Array<FlxKey>;
+	private var bullets:FlxTypedGroup<Bullet>;
 	
-	public function new(?X:Float=0, ?Y:Float=0, Keys:Array<Array<FlxKey>>, ?SimpleGraphic:FlxGraphicAsset) {
+	public function new(?X:Float=0, ?Y:Float=0, Keys:Array<Array<FlxKey>>, Bullets:FlxTypedGroup<Bullet>, Color:FlxColor, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
+		playerColor = Color;
 		if (SimpleGraphic == null) {
-			makeGraphic(20, 20);
+			makeGraphic(20, 20, playerColor);
 		}
 		forwardKeys = Keys[0];
 		leftKeys = Keys[1];
 		rightKeys = Keys[2];
 		shootKeys = Keys[3];
+		bullets = Bullets;
 		width *= 0.8;
 		height *= 0.8;
 		centerOffsets();
 		antialiasing = true;
-		//centerOffsets();
-	}
-	
-	private function processVelocity() {
-		
 	}
 	
 	private function switchSides() {
@@ -68,6 +70,10 @@ class Player extends FlxSprite {
 		if (FlxG.keys.anyPressed(forwardKeys)) {
 			acceleration.set(ACCEL, 0);
 			acceleration.rotate(FlxPoint.weak(0, 0), angle);
+		}
+		if (FlxG.keys.anyJustPressed(shootKeys)) {
+			var blt:Bullet = bullets.recycle(Bullet);
+			blt.shoot(getMidpoint(), angle, playerColor);
 		}
 		super.update(elapsed);
 		switchSides();
