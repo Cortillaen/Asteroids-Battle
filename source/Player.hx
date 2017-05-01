@@ -29,6 +29,9 @@ class Player extends FlxSprite {
 		leftKeys = Keys[1];
 		rightKeys = Keys[2];
 		shootKeys = Keys[3];
+		width *= 0.8;
+		height *= 0.8;
+		centerOffsets();
 		antialiasing = true;
 		//centerOffsets();
 	}
