@@ -3,6 +3,7 @@ package;
 import flash.text.TextFieldAutoSize;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import flixel.util.FlxColor;
 
 /**
  * ...
@@ -15,9 +16,11 @@ class Asteroid extends FlxSprite
 	static public var IMAGE(default, never):FlxGraphicAsset = AssetPaths.Asteroid__png;
 	
 	public var size:Int;
+	public var astColor:FlxColor;
 
 	public function new(?Size:Int = 0,  ?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
+		astColor = FlxColor.
 		if (SimpleGraphic == null)
 			loadGraphic(IMAGE, 100, 100);
 		size = Size;
