@@ -56,15 +56,15 @@ class Player extends FlxSprite {
 	
 	private function switchSides() {
 		if (x < -20) {
-			x = 640;
+			x = FlxG.width;
 		}
-		else if (x > 640) {
+		else if (x > FlxG.width) {
 			x = -20;
 		}
 		if (y < -20) {
-			y = 480;
+			y = FlxG.height;
 		}
-		else if (y > 480) {
+		else if (y > FlxG.height) {
 			y = -20;
 		}
 	}
