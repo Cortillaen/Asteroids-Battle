@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxGraphicAsset;
@@ -19,6 +20,26 @@ class Bullet extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		makeGraphic(5, 2);
 		color = FlxColor.WHITE;
+	}
+	
+	private function switchSides() {
+		if (x < -20) {
+			x = FlxG.width;
+		}
+		else if (x > FlxG.width) {
+			x = -20;
+		}
+		if (y < -20) {
+			y = FlxG.height;
+		}
+		else if (y > FlxG.height) {
+			y = -20;
+		}
+	}
+	
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
+		switchSides();
 	}
 	
 	public function shoot(startPoint:FlxPoint, direction:Float, newColor:FlxColor) {
