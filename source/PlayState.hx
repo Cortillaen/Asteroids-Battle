@@ -11,14 +11,22 @@ class PlayState extends FlxState
 	static private var P2_KEYS(default, never):Array<Array<FlxKey>> = [[FlxKey.NUMPADEIGHT], [FlxKey.NUMPADFOUR], [FlxKey.NUMPADSIX], [FlxKey.NUMPADZERO, FlxKey.ENTER]];
 	public var bullets:FlxTypedGroup<Bullet>;
 	
+	private function setup():Void {
+		forEachOfType(Player, function(p:Player){p.place(); });
+		//forEachAlive(function(a:
+	}
+	
 	override public function create():Void
 	{
 		super.create();
 		bullets = new FlxTypedGroup<Bullet>(5);
 		add(bullets);
-		add(new Player(200, 200, P1_KEYS, bullets, FlxColor.BLUE));
-		add(new Player(400, 200, P2_KEYS, bullets, FlxColor.RED));
-		forEachOfType(Player, function(p:Player){p.place(); });
+		add(new Player(P1_KEYS, bullets, FlxColor.BLUE));
+		add(new Player(P2_KEYS, bullets, FlxColor.RED));
+		add(new Asteroid(0, 200, 200));
+		//add(new Asteroid());
+		//add(new Asteroid());
+		setup();
 	}
 
 	override public function update(elapsed:Float):Void
