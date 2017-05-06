@@ -12,13 +12,15 @@ import flixel.util.FlxColor;
  */
 class Bullet extends FlxSprite 
 {
-	static private var BULLET_SPEED(default, never):Float = 200;
+	static private var LENGTH(default, never):Int = 6;
+	static private var WIDTH(default, never):Int = 3;
+	static private var SPEED(default, never):Float = 200;
 	public var bulletColor:FlxColor;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
-		makeGraphic(5, 2);
+		makeGraphic(LENGTH, WIDTH);
 		color = FlxColor.WHITE;
 	}
 	
@@ -46,7 +48,7 @@ class Bullet extends FlxSprite
 		super.reset(startPoint.x, startPoint.y);
 		angle = direction;
 		
-		_point.set(0, BULLET_SPEED);
+		_point.set(0, SPEED);
 		_point.rotate(FlxPoint.weak(0, 0), angle-90);
 		velocity.x = _point.x;
 		velocity.y = _point.y;
