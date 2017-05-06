@@ -18,6 +18,7 @@ class PlayState extends FlxState
 		add(bullets);
 		add(new Player(200, 200, P1_KEYS, bullets, FlxColor.BLUE));
 		add(new Player(400, 200, P2_KEYS, bullets, FlxColor.RED));
+		forEachOfType(Player, function(p:Player){p.place(); });
 	}
 
 	override public function update(elapsed:Float):Void

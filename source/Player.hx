@@ -41,6 +41,18 @@ class Player extends FlxSprite {
 		centerOffsets();
 		antialiasing = true;
 	}
+	public function place() {
+		if (playerColor == FlxColor.BLUE) {
+			x = FlxG.width * .05 - 10;
+			y = FlxG.height * .95 - 10;
+			angle = -(Math.atan(FlxG.height / FlxG.width) / (2 * Math.PI) * 360);
+		}
+		else if (playerColor == FlxColor.RED) {
+			x = (FlxG.width * .95) - 10;
+			y = FlxG.height * .05 - 10;
+			angle = 180 - (Math.atan(FlxG.height / FlxG.width) / (2 * Math.PI) * 360);
+		}
+	}
 	
 	private function switchSides() {
 		if (x < -20) {
