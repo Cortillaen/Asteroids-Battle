@@ -17,6 +17,7 @@ class Player extends FlxSprite {
 	static private var ACCEL(default, never):Float = 60;
 	static private var ROTATION_RATE(default, never):Float = 3;
 	static private var BULLET_OFFSET(default, never):Float = 10;
+	static public var IMAGE(default, never):FlxGraphicAsset = AssetPaths.Ship__png;
 	
 	public var playerColor:FlxColor;
 	private var forwardKeys:Array<FlxKey>;
@@ -29,8 +30,9 @@ class Player extends FlxSprite {
 		super(X, Y, SimpleGraphic);
 		playerColor = Color;
 		if (SimpleGraphic == null) {
-			makeGraphic(20, 20, playerColor);
+			loadGraphic(IMAGE, 20, 20);
 		}
+		color = playerColor;
 		forwardKeys = Keys[0];
 		leftKeys = Keys[1];
 		rightKeys = Keys[2];
