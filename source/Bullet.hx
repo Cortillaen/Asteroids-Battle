@@ -11,7 +11,7 @@ import flixel.util.FlxColor;
  */
 class Bullet extends FlxSprite 
 {
-	static private var BULLET_SPEED:Float = 200;
+	static private var BULLET_SPEED(default, never):Float = 200;
 	public var bulletColor:FlxColor;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
