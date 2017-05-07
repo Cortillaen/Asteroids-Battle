@@ -21,6 +21,7 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		super.create();
+		FlxG.mouse.visible = false;
 		gameOver = false;
 		bullets = new FlxTypedGroup<Bullet>(5);
 		players = new FlxTypedGroup<Player>(2);
