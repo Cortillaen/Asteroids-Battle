@@ -15,6 +15,7 @@ import flixel.input.keyboard.FlxKey;
 class MenuState extends FlxState 
 {
 	static public var IMAGE(default, never):FlxGraphicAsset = AssetPaths.Ship__png;
+	private var instructionsOpen:Bool;
 
 	override public function create():Void {
 		super.create();
@@ -38,12 +39,44 @@ class MenuState extends FlxState
 		rightShip.angle = 180;
 		add(leftShip);
 		add(rightShip);
+		var instructions:FlxText = new FlxText(0, 310, FlxG.width, "Instructions", 40);
+		instructions.alignment = FlxTextAlign.CENTER;
+		add(instructions);
+		var instructionText:FlxText = new FlxText(25, 25, FlxG.width - 25, "Player Blue is controlled with WASD and Ctrl or Space to shoot.\n\n" + 
+			"Player Red is controlled with Numpad 8456 and 0 or Enter to shoot.\n\nYour shots do nothing to the enemy but can change asteroids " + 
+			"to your color.  Colliding with an asteroid of your own color splits it into 3 smaller asteroids, but colliding with one " +
+			"that is white or the enemy's color will destroy you.\n\nFight tactically and create a field of hazards for your opponent!", 22);
+		instructionText.visible = false;
+		add(instructionText);
+		var exit:FlxText = new FlxText(0, 420, FlxG.width, "Return", 50);
+		exit.alignment = FlxTextAlign.CENTER;
+		exit.visible = false;
+		add(exit);
+		instructionsOpen = false;
 	}
 	
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		if (FlxG.keys.anyJustReleased([FlxKey.ENTER]) || (FlxG.mouse.justReleased && FlxG.mouse.getPosition().inCoords(135, 245, 360, 60))) {
+		if ((!instructionsOpen) && (FlxG.keys.anyJustReleased([FlxKey.ENTER]) || (FlxG.mouse.justReleased && FlxG.mouse.getPosition().inCoords(135, 245, 360, 60)))) {
 			FlxG.switchState(new PlayState());
+		}
+		else if (FlxG.mouse.justReleased && FlxG.mouse.getPosition().inCoords(200, 310, 240, 50)) {
+			forEachOfType(FlxText, function(t:FlxText){
+				if ((t.y == 25) || (t.y == 420))
+					t.visible = true;
+				else
+					t.visible = false;
+			});
+			instructionsOpen = true;
+		}
+		else if (FlxG.mouse.justReleased && FlxG.mouse.getPosition().inCoords(200, 430, 240, 50)) {
+			forEachOfType(FlxText, function(t:FlxText){
+				if ((t.y == 25) || (t.y == 420))
+					t.visible = false;
+				else
+					t.visible = true;
+			});
+			instructionsOpen = false;
 		}
 	}
 }
