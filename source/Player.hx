@@ -17,6 +17,7 @@ class Player extends FlxSprite {
 	static private var ACCEL(default, never):Float = 60;
 	static private var ROTATION_RATE(default, never):Float = 3;
 	static private var BULLET_OFFSET(default, never):Float = 10;
+	static public var IMAGE(default, never):FlxGraphicAsset = AssetPaths.Ship__png;
 	
 	public var playerColor:FlxColor;
 	private var forwardKeys:Array<FlxKey>;
@@ -29,8 +30,9 @@ class Player extends FlxSprite {
 		super(X, Y, SimpleGraphic);
 		playerColor = Color;
 		if (SimpleGraphic == null) {
-			makeGraphic(20, 20, playerColor);
+			loadGraphic(IMAGE, 20, 20);
 		}
+		color = playerColor;
 		forwardKeys = Keys[0];
 		leftKeys = Keys[1];
 		rightKeys = Keys[2];
@@ -53,19 +55,19 @@ class Player extends FlxSprite {
 			angle = 180 - (Math.atan(FlxG.height / FlxG.width) / (2 * Math.PI) * 360);
 		}
 	}
-	
+
 	private function switchSides() {
-		if (x < -20) {
-			x = FlxG.width;
+		if (x < (0 - graphic.width*1.1)) {
+			x = FlxG.width + graphic.width*0.1;
 		}
-		else if (x > FlxG.width) {
-			x = -20;
+		else if (x > (FlxG.width + graphic.width*0.1)) {
+			x = (0 - graphic.width*1.1);
 		}
-		if (y < -20) {
-			y = FlxG.height;
+		if (y < (0 - graphic.height*1.1)) {
+			y = FlxG.height + graphic.height*0.1;
 		}
-		else if (y > FlxG.height) {
-			y = -20;
+		else if (y > (FlxG.height + graphic.height*0.1)) {
+			y = (0 - graphic.height*1.1);
 		}
 	}
 	
