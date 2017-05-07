@@ -1,8 +1,11 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.input.keyboard.FlxKey;
+import flixel.math.FlxAngle;
+import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 
 class PlayState extends FlxState
@@ -35,5 +38,29 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
+		FlxG.overlap(players, asteroids, function(p:Player, a:Asteroid){
+			var retColor:FlxColor = a.impact(p);
+			if (retColor == FlxColor.GREEN) {
+				//create spawn points for new asteroids that avoid the player
+				var spawnPoints:Array<FlxPoint> = a.getExplodePositions(FlxAngle.angleBetween(a, p, true));
+				var tempAst:Asteroid;
+				for (point in spawnPoints) {
+					tempAst = asteroids.recycle(Asteroid);
+					tempAst.velocity.copyFrom(point);
+					point.scale(40 / point.distanceTo(FlxPoint.weak()));
+					tempAst.x = a.x + point.x;
+					tempAst.y = a.y + point.y;
+					tempAst.color = a.color;
+					tempAst.changeSize(a.size + 1);
+				}
+				a.kill();
+			}
+			else if (retColor == FlxColor.WHITE) {
+				//nothing happens
+			}
+			else { //game over
+			}
+		});
+		FlxG.overlap(bullets, asteroids, function(b:Bullet, a:Asteroid){a.impact(b); });
 	}
 }

@@ -55,19 +55,19 @@ class Player extends FlxSprite {
 			angle = 180 - (Math.atan(FlxG.height / FlxG.width) / (2 * Math.PI) * 360);
 		}
 	}
-	
+
 	private function switchSides() {
-		if (x < -20) {
-			x = FlxG.width;
+		if (x < (0 - graphic.width*1.1)) {
+			x = FlxG.width + graphic.width*0.1;
 		}
-		else if (x > FlxG.width) {
-			x = -20;
+		else if (x > (FlxG.width + graphic.width*0.1)) {
+			x = (0 - graphic.width*1.1);
 		}
-		if (y < -20) {
-			y = FlxG.height;
+		if (y < (0 - graphic.height*1.1)) {
+			y = FlxG.height + graphic.height*0.1;
 		}
-		else if (y > FlxG.height) {
-			y = -20;
+		else if (y > (FlxG.height + graphic.height*0.1)) {
+			y = (0 - graphic.height*1.1);
 		}
 	}
 	

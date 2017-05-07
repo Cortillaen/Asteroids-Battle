@@ -25,17 +25,17 @@ class Bullet extends FlxSprite
 	}
 	
 	private function switchSides() {
-		if (x < -20) {
+		if (x < -5) {
 			x = FlxG.width;
 		}
 		else if (x > FlxG.width) {
-			x = -20;
+			x = -5;
 		}
-		if (y < -20) {
+		if (y < -5) {
 			y = FlxG.height;
 		}
 		else if (y > FlxG.height) {
-			y = -20;
+			y = -5;
 		}
 	}
 	
