@@ -20,7 +20,7 @@ class Player extends FlxSprite {
 	static private var BULLET_OFFSET(default, never):Float = 10;
 	static public var IMAGE(default, never):FlxGraphicAsset = AssetPaths.Ship__png;
 	
-	public var playerColor:FlxColor;
+	public var team:TeamType;
 	private var forwardKeys:Array<FlxKey>;
 	private var reverseKeys:Array<FlxKey>;
 	private var leftKeys:Array<FlxKey>;
@@ -28,13 +28,16 @@ class Player extends FlxSprite {
 	private var shootKeys:Array<FlxKey>;
 	private var bullets:FlxTypedGroup<Bullet>;
 	
-	public function new(?X:Float=0, ?Y:Float=0, Keys:Array<Array<FlxKey>>, Bullets:FlxTypedGroup<Bullet>, Color:FlxColor, ?SimpleGraphic:FlxGraphicAsset) {
+	public function new(?X:Float=0, ?Y:Float=0, Keys:Array<Array<FlxKey>>, Bullets:FlxTypedGroup<Bullet>, Team:TeamType, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
-		playerColor = Color;
+		team = Team;
 		if (SimpleGraphic == null) {
 			loadGraphic(IMAGE, 20, 20);
 		}
-		color = playerColor;
+		if (team == BLUE)
+			color = FlxColor.BLUE;
+		else
+			color = FlxColor.RED;
 		forwardKeys = Keys[0];
 		reverseKeys = Keys[1];
 		leftKeys = Keys[2];
@@ -46,13 +49,14 @@ class Player extends FlxSprite {
 		centerOffsets();
 		antialiasing = true;
 	}
+	
 	public function place() {
-		if (playerColor == FlxColor.BLUE) {
+		if (team == BLUE) {
 			x = FlxG.width * .05 - 10;
 			y = FlxG.height * .95 - 10;
 			angle = -(Math.atan(FlxG.height / FlxG.width) / (2 * Math.PI) * 360);
 		}
-		else if (playerColor == FlxColor.RED) {
+		else if (team == RED) {
 			x = (FlxG.width * .95) - 10;
 			y = FlxG.height * .05 - 10;
 			angle = 180 - (Math.atan(FlxG.height / FlxG.width) / (2 * Math.PI) * 360);
@@ -84,7 +88,7 @@ class Player extends FlxSprite {
 		}
 		if (FlxG.keys.anyJustPressed(shootKeys)) {
 			var blt:Bullet = bullets.recycle(Bullet);
-			blt.shoot(getMidpoint(), velocity, angle, playerColor);
+			blt.shoot(getMidpoint(), velocity, angle, team);
 		}
 		super.update(elapsed);
 		AstUtil.switchSides(this);

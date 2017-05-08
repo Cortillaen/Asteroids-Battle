@@ -26,8 +26,8 @@ class PlayState extends FlxState
 		bullets = new FlxTypedGroup<Bullet>(5);
 		players = new FlxTypedGroup<Player>(2);
 		asteroids = new FlxTypedGroup<Asteroid>(30);
-		players.add(new Player(P1_KEYS, bullets, FlxColor.BLUE));
-		players.add(new Player(P2_KEYS, bullets, FlxColor.RED));
+		players.add(new Player(P1_KEYS, bullets, BLUE));
+		players.add(new Player(P2_KEYS, bullets, RED));
 		asteroids.add(new Asteroid());
 		asteroids.add(new Asteroid());
 		asteroids.add(new Asteroid());
@@ -48,26 +48,7 @@ class PlayState extends FlxState
 			asteroids.recycle(Asteroid);
 		}
 		FlxG.overlap(players, asteroids, function(p:Player, a:Asteroid){
-			var retColor:FlxColor = a.impact(p);
-			if (retColor == FlxColor.GREEN) {
-				//create spawn points for new asteroids that avoid the player
-				var spawnPoints:Array<FlxPoint> = a.getExplodePositions(FlxAngle.angleBetween(a, p, true));
-				var tempAst:Asteroid;
-				for (point in spawnPoints) {
-					tempAst = asteroids.recycle(Asteroid);
-					tempAst.velocity.copyFrom(point);
-					point.scale(40 / point.distanceTo(FlxPoint.weak()));
-					tempAst.x = a.x + point.x;
-					tempAst.y = a.y + point.y;
-					tempAst.color = a.color;
-					tempAst.changeSize(a.size + 1);
-				}
-				a.kill();
-			}
-			else if (retColor == FlxColor.WHITE) {
-				//nothing happens
-			}
-			else { //game over
+			if (a.impact(p)) {
 				players.kill();
 				var showText = new FlxText(0, 100, FlxG.width, (retColor == FlxColor.RED ? "RED" : "BLUE") + " Player Wins!\n\nPress R to return to menu.", 40);
 				showText.alignment = FlxTextAlign.CENTER;

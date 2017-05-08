@@ -16,13 +16,13 @@ class Bullet extends FlxSprite
 	static private var LENGTH(default, never):Int = 6;
 	static private var WIDTH(default, never):Int = 3;
 	static private var SPEED(default, never):Float = 200;
-	public var bulletColor:FlxColor;
+	public var team:TeamType;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(LENGTH, WIDTH);
-		color = FlxColor.WHITE;
+		team = TeamType.NONE;
 	}
 	
 	override public function update(elapsed:Float) {
@@ -30,7 +30,7 @@ class Bullet extends FlxSprite
 		AstUtil.switchSides(this);
 	}
 	
-	public function shoot(startPoint:FlxPoint, playerVelocity:FlxPoint, direction:Float, newColor:FlxColor) {
+	public function shoot(startPoint:FlxPoint, playerVelocity:FlxPoint, direction:Float, Team:TeamType) {
 		super.reset(startPoint.x, startPoint.y);
 		angle = direction;
 		
@@ -40,7 +40,10 @@ class Bullet extends FlxSprite
 		velocity.y = _point.y;
 		velocity = velocity.addPoint(playerVelocity);
 		
-		bulletColor = newColor;
-		color = newColor;
+		team = Team;
+		if (team == TeamType.BLUE)
+			color = FlxColor.BLUE;
+		else
+			color = FlxColor.RED;
 	}
 }

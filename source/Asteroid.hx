@@ -1,5 +1,6 @@
 package;
 
+import flixel.math.FlxAngle;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
 import flixel.FlxSprite;
@@ -18,10 +19,11 @@ class Asteroid extends FlxSprite {
 	static public var IMAGE(default, never):FlxGraphicAsset = AssetPaths.Asteroid__png;
 	
 	public var size:Int;
+	public var team:TeamType;
 
 	public function new(?newSize:Int = 0,  ?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
-		color = FlxColor.WHITE;
+		team = TeamType.NONE;
 		if (SimpleGraphic == null)
 			loadGraphic(IMAGE, 100, 100);
 		changeSize(newSize);
@@ -80,26 +82,39 @@ class Asteroid extends FlxSprite {
 	 * @param	obj
 	 * @return
 	 */
-	public function impact(obj:FlxSprite):FlxColor {
+	public function impact(obj:FlxSprite):Bool {
 		if (Std.is(obj, Player)) {
-			if ((cast (obj, Player)).playerColor == color) {
-				return FlxColor.GREEN;
+			if ((cast (obj, Player)).team == team) {
+				var spawnPoints:Array<FlxPoint> = getExplodePositions(FlxAngle.angleBetween(this, obj, true));
+				var tempAst:Asteroid;
+				for (point in spawnPoints) {
+					tempAst = (cast (FlxG.state, PlayState)).asteroids.recycle(Asteroid);
+					tempAst.velocity.copyFrom(point);
+					point.scale(40 / point.distanceTo(FlxPoint.weak()));
+					tempAst.x = x + point.x;
+					tempAst.y = y + point.y;
+					tempAst.color = color;
+					tempAst.team = team;
+					tempAst.changeSize(size + 1);
+				}
+				this.kill();
 			}
 			else {
 				obj.kill();
-				if ((cast (obj, Player)).playerColor == FlxColor.RED)
-					return FlxColor.BLUE;
-				else
-					return FlxColor.RED;
+				return true;
 			}
 		}
 		else if (Std.is(obj, Bullet)) {
-			if ((cast (obj, Bullet)).bulletColor != color) {
-				color = (cast (obj, Bullet)).bulletColor;
+			if ((cast (obj, Bullet)).team != team) {
+				team = (cast (obj, Bullet)).team;
+				if (team == BLUE)
+					color = FlxColor.BLUE;
+				else
+					color = FlxColor.RED;
 				obj.kill();
 			}
 		}
-		return FlxColor.WHITE;
+		return false;
 	}
 	
 	override public function update(elapsed:Float) {
