@@ -22,6 +22,7 @@ class Player extends FlxSprite {
 	
 	public var playerColor:FlxColor;
 	private var forwardKeys:Array<FlxKey>;
+	private var reverseKeys:Array<FlxKey>;
 	private var leftKeys:Array<FlxKey>;
 	private var rightKeys:Array<FlxKey>;
 	private var shootKeys:Array<FlxKey>;
@@ -35,9 +36,10 @@ class Player extends FlxSprite {
 		}
 		color = playerColor;
 		forwardKeys = Keys[0];
-		leftKeys = Keys[1];
-		rightKeys = Keys[2];
-		shootKeys = Keys[3];
+		reverseKeys = Keys[1];
+		leftKeys = Keys[2];
+		rightKeys = Keys[3];
+		shootKeys = Keys[4];
 		bullets = Bullets;
 		width *= 0.7;
 		height *= 0.7;
@@ -70,6 +72,15 @@ class Player extends FlxSprite {
 		if (FlxG.keys.anyPressed(forwardKeys)) {
 			acceleration.set(ACCEL, 0);
 			acceleration.rotate(FlxPoint.weak(0, 0), angle);
+		}
+		if (FlxG.keys.anyPressed(reverseKeys)) {
+			if (velocity.distanceTo(FlxPoint.weak()) < 10) {
+				velocity.set(0, 0);
+			}
+			else {
+				acceleration.set(-ACCEL*3, 0);
+				acceleration.rotate(FlxPoint.weak(0, 0), velocity.angleBetween(FlxPoint.weak())+90);
+			}
 		}
 		if (FlxG.keys.anyJustPressed(shootKeys)) {
 			var blt:Bullet = bullets.recycle(Bullet);
