@@ -44,7 +44,7 @@ class Bullet extends FlxSprite
 		switchSides();
 	}
 	
-	public function shoot(startPoint:FlxPoint, direction:Float, newColor:FlxColor) {
+	public function shoot(startPoint:FlxPoint, playerVelocity:FlxPoint, direction:Float, newColor:FlxColor) {
 		super.reset(startPoint.x, startPoint.y);
 		angle = direction;
 		
@@ -52,6 +52,7 @@ class Bullet extends FlxSprite
 		_point.rotate(FlxPoint.weak(0, 0), angle-90);
 		velocity.x = _point.x;
 		velocity.y = _point.y;
+		velocity = velocity.addPoint(playerVelocity);
 		
 		bulletColor = newColor;
 		color = newColor;

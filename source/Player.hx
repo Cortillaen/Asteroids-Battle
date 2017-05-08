@@ -87,7 +87,7 @@ class Player extends FlxSprite {
 		}
 		if (FlxG.keys.anyJustPressed(shootKeys)) {
 			var blt:Bullet = bullets.recycle(Bullet);
-			blt.shoot(getMidpoint(), angle, playerColor);
+			blt.shoot(getMidpoint(), velocity, angle, playerColor);
 		}
 		super.update(elapsed);
 		switchSides();
