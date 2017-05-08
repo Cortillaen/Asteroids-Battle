@@ -7,6 +7,7 @@ import flixel.FlxSprite;
 import flixel.input.keyboard.FlxKey;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
+import TeamType;
 
 /**
  * Player object class
@@ -55,21 +56,6 @@ class Player extends FlxSprite {
 			angle = 180 - (Math.atan(FlxG.height / FlxG.width) / (2 * Math.PI) * 360);
 		}
 	}
-
-	private function switchSides() {
-		if (x < (0 - graphic.width*1.1)) {
-			x = FlxG.width + graphic.width*0.1;
-		}
-		else if (x > (FlxG.width + graphic.width*0.1)) {
-			x = (0 - graphic.width*1.1);
-		}
-		if (y < (0 - graphic.height*1.1)) {
-			y = FlxG.height + graphic.height*0.1;
-		}
-		else if (y > (FlxG.height + graphic.height*0.1)) {
-			y = (0 - graphic.height*1.1);
-		}
-	}
 	
 	override public function update(elapsed:Float) {
 		acceleration.set(); //defaults to 0,0
@@ -90,6 +76,6 @@ class Player extends FlxSprite {
 			blt.shoot(getMidpoint(), velocity, angle, playerColor);
 		}
 		super.update(elapsed);
-		switchSides();
+		AstUtil.switchSides(this);
 	}
 }

@@ -5,6 +5,7 @@ import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
+import TeamType;
 
 /**
  * ...
@@ -70,21 +71,6 @@ class Asteroid extends FlxSprite {
 		positions[2].rotate(FlxPoint.weak(0, 0), avoid + 45 + 90 * 2 + Math.random() * 90);
 		return positions;
 	}
-
-	private function switchSides() {
-		if (x < (0 - 100 * scale.x *1.1)) {
-			x = FlxG.width + 100 * scale.x *0.1;
-		}
-		else if (x > (FlxG.width + 100 * scale.x *0.1)) {
-			x = (0 - 100 * scale.x *1.1);
-		}
-		if (y < (0 - 100 * scale.y *1.1)) {
-			y = FlxG.height + 100 * scale.y *0.1;
-		}
-		else if (y > (FlxG.height + 100 * scale.y *0.1)) {
-			y = (0 - 100 * scale.y *1.1);
-		}
-	}
 	
 	/**
 	 * Checks what is impacting the asteroid and compares their colors.
@@ -118,6 +104,6 @@ class Asteroid extends FlxSprite {
 	
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		switchSides();
+		AstUtil.switchSides(this);
 	}
 }

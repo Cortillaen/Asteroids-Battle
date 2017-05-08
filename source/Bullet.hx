@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
+import TeamType;
 
 /**
  * ...
@@ -24,24 +25,9 @@ class Bullet extends FlxSprite
 		color = FlxColor.WHITE;
 	}
 	
-	private function switchSides() {
-		if (x < -5) {
-			x = FlxG.width;
-		}
-		else if (x > FlxG.width) {
-			x = -5;
-		}
-		if (y < -5) {
-			y = FlxG.height;
-		}
-		else if (y > FlxG.height) {
-			y = -5;
-		}
-	}
-	
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		switchSides();
+		AstUtil.switchSides(this);
 	}
 	
 	public function shoot(startPoint:FlxPoint, playerVelocity:FlxPoint, direction:Float, newColor:FlxColor) {
