@@ -47,11 +47,11 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		if (gameOver && FlxG.keys.anyPressed([FlxKey.R])) {
-			FlxG.switchState(new MenuState());
-		}
-		if (asteroids.countLiving() < 3) {
-			asteroids.recycle(Asteroid);
+		if (gameOver) {
+			if (FlxG.keys.anyPressed([FlxKey.R]))
+				FlxG.switchState(new PlayState());
+			else if (FlxG.keys.anyPressed([FlxKey.ENTER]))
+				FlxG.switchState(new MenuState());
 		}
 		FlxG.overlap(players, asteroids, function(p:Player, a:Asteroid){
 			if (a.impact(p)) {
