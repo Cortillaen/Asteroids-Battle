@@ -72,17 +72,17 @@ class Asteroid extends FlxSprite {
 	}
 
 	private function switchSides() {
-		if (x < (0 - graphic.width*1.1)) {
-			x = FlxG.width + graphic.width*0.1;
+		if (x < (0 - 100 * scale.x *1.1)) {
+			x = FlxG.width + 100 * scale.x *0.1;
 		}
-		else if (x > (FlxG.width + graphic.width*0.1)) {
-			x = (0 - graphic.width*1.1);
+		else if (x > (FlxG.width + 100 * scale.x *0.1)) {
+			x = (0 - 100 * scale.x *1.1);
 		}
-		if (y < (0 - graphic.height*1.1)) {
-			y = FlxG.height + graphic.height*0.1;
+		if (y < (0 - 100 * scale.y *1.1)) {
+			y = FlxG.height + 100 * scale.y *0.1;
 		}
-		else if (y > (FlxG.height + graphic.height*0.1)) {
-			y = (0 - graphic.height*1.1);
+		else if (y > (FlxG.height + 100 * scale.y *0.1)) {
+			y = (0 - 100 * scale.y *1.1);
 		}
 	}
 	
