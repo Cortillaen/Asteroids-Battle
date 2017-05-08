@@ -49,8 +49,8 @@ class Asteroid extends FlxSprite {
 		size = newSize;
 		scale.x /= (Math.pow(2, size));
 		scale.y /= (Math.pow(2, size));
-		height *= 1 / (Math.pow(2, size)) * HITBOX_SCALE;
-		width *= 1 / (Math.pow(2, size)) * HITBOX_SCALE;
+		height *= 1 / (Math.pow(2, size)) * (size == 0 ? HITBOX_SCALE : (1 - Math.pow((1 - HITBOX_SCALE), size)));
+		width *= 1 / (Math.pow(2, size)) * (size == 0 ? HITBOX_SCALE : (1 - Math.pow((1 - HITBOX_SCALE), size)));
 		centerOrigin();
 		centerOffsets();
 	}
