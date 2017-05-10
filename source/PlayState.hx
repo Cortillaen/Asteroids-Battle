@@ -53,7 +53,7 @@ class PlayState extends FlxState
 		if (gameOver) {
 			if (FlxG.keys.anyPressed([FlxKey.R]))
 				FlxG.switchState(new PlayState());
-			else if (FlxG.keys.anyPressed([FlxKey.ENTER]))
+			else if (FlxG.keys.anyPressed([FlxKey.ESCAPE]))
 				FlxG.switchState(new MenuState());
 		}
 		FlxG.overlap(players, asteroids, function(p:Player, a:Asteroid){
@@ -63,7 +63,7 @@ class PlayState extends FlxState
 					++RED_SCORE;
 				else
 					++BLUE_SCORE;
-				var showText = new FlxText(0, 30, FlxG.width, (p.team == BLUE ? "RED" : "BLUE") + " Player Wins!\n\nPress R to restart.\nPress Enter to return to menu.", 40);
+				var showText = new FlxText(0, 30, FlxG.width, (p.team == BLUE ? "RED" : "BLUE") + " Player Wins!\n\nPress R to restart.\nPress Esc to return to menu.", 40);
 				showText.alignment = FlxTextAlign.CENTER;
 				showText.addFormat(new FlxTextFormat((p.team == BLUE ? FlxColor.RED : FlxColor.BLUE), true, false, FlxColor.BLACK));
 				var blueScoreText = new FlxText(100, 300, 170, "BLUE:\n" + BLUE_SCORE, 50);
