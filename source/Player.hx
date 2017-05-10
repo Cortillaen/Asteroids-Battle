@@ -35,9 +35,9 @@ class Player extends FlxSprite {
 			loadGraphic(IMAGE, 20, 20);
 		}
 		if (team == BLUE)
-			color = FlxColor.BLUE;
+			color = 0xff0066ff;
 		else
-			color = FlxColor.RED;
+			color = 0xffff1030;
 		forwardKeys = Keys[0];
 		reverseKeys = Keys[1];
 		leftKeys = Keys[2];

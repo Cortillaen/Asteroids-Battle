@@ -108,9 +108,9 @@ class Asteroid extends FlxSprite {
 			if ((cast (obj, Bullet)).team != team) {
 				team = (cast (obj, Bullet)).team;
 				if (team == BLUE)
-					color = FlxColor.BLUE;
+					color = 0xff0000a0;
 				else
-					color = FlxColor.RED;
+					color = 0xff800000;
 				obj.kill();
 			}
 		}
