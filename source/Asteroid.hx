@@ -97,6 +97,7 @@ class Asteroid extends FlxSprite {
 					tempAst.team = team;
 					tempAst.changeSize(size + 1);
 				}
+				(cast (FlxG.state, PlayState)).ASTEROIDS_CHANGED = true;
 				this.kill();
 			}
 			else {

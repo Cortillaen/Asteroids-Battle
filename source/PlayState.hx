@@ -8,6 +8,7 @@ import flixel.math.FlxAngle;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
+import flixel.util.FlxSort;
 
 class PlayState extends FlxState
 {
@@ -19,6 +20,7 @@ class PlayState extends FlxState
 	public var asteroids:FlxTypedGroup<Asteroid>;
 	static public var BLUE_SCORE:Int;
 	static public var RED_SCORE:Int;
+	public var ASTEROIDS_CHANGED:Bool;
 	
 	override public function create():Void
 	{
@@ -42,6 +44,7 @@ class PlayState extends FlxState
 		add(asteroids);
 		players.forEachOfType(Player, function(p:Player){p.place(); });
 		asteroids.forEachOfType(Asteroid, function(a:Asteroid){a.place(players.members[0], players.members[1]); });
+		ASTEROIDS_CHANGED = true;
 	}
 
 	override public function update(elapsed:Float):Void
@@ -77,6 +80,10 @@ class PlayState extends FlxState
 				add(redScoreText);
 			}
 		});
+		if (ASTEROIDS_CHANGED) {
+			asteroids.sort(function(order:Int, a1:Asteroid, a2:Asteroid):Int {return FlxSort.byValues(order, a1.size, a2.size);}, FlxSort.ASCENDING);
+			ASTEROIDS_CHANGED = false;
+		}
 		FlxG.overlap(bullets, asteroids, function(b:Bullet, a:Asteroid){a.impact(b); });
 	}
 }
