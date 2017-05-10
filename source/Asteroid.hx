@@ -1,10 +1,12 @@
 package;
 
+import flixel.math.FlxAngle;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
+import TeamType;
 
 /**
  * ...
@@ -17,10 +19,11 @@ class Asteroid extends FlxSprite {
 	static public var IMAGE(default, never):FlxGraphicAsset = AssetPaths.Asteroid__png;
 	
 	public var size:Int;
+	public var team:TeamType;
 
 	public function new(?newSize:Int = 0,  ?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) {
 		super(X, Y, SimpleGraphic);
-		color = FlxColor.WHITE;
+		team = TeamType.NONE;
 		if (SimpleGraphic == null)
 			loadGraphic(IMAGE, 100, 100);
 		changeSize(newSize);
@@ -49,8 +52,8 @@ class Asteroid extends FlxSprite {
 		size = newSize;
 		scale.x /= (Math.pow(2, size));
 		scale.y /= (Math.pow(2, size));
-		height *= 1 / (Math.pow(2, size)) * HITBOX_SCALE;
-		width *= 1 / (Math.pow(2, size)) * HITBOX_SCALE;
+		height *= 1 / (Math.pow(2, size)) * (size == 0 ? HITBOX_SCALE : (1 - Math.pow((1 - HITBOX_SCALE), size)));
+		width *= 1 / (Math.pow(2, size)) * (size == 0 ? HITBOX_SCALE : (1 - Math.pow((1 - HITBOX_SCALE), size)));
 		centerOrigin();
 		centerOffsets();
 	}
@@ -70,21 +73,6 @@ class Asteroid extends FlxSprite {
 		positions[2].rotate(FlxPoint.weak(0, 0), avoid + 45 + 90 * 2 + Math.random() * 90);
 		return positions;
 	}
-
-	private function switchSides() {
-		if (x < (0 - graphic.width*1.1)) {
-			x = FlxG.width + graphic.width*0.1;
-		}
-		else if (x > (FlxG.width + graphic.width*0.1)) {
-			x = (0 - graphic.width*1.1);
-		}
-		if (y < (0 - graphic.height*1.1)) {
-			y = FlxG.height + graphic.height*0.1;
-		}
-		else if (y > (FlxG.height + graphic.height*0.1)) {
-			y = (0 - graphic.height*1.1);
-		}
-	}
 	
 	/**
 	 * Checks what is impacting the asteroid and compares their colors.
@@ -94,30 +82,44 @@ class Asteroid extends FlxSprite {
 	 * @param	obj
 	 * @return
 	 */
-	public function impact(obj:FlxSprite):FlxColor {
+	public function impact(obj:FlxSprite):Bool {
 		if (Std.is(obj, Player)) {
-			if ((cast (obj, Player)).playerColor == color) {
-				return FlxColor.GREEN;
+			if ((cast (obj, Player)).team == team) {
+				var spawnPoints:Array<FlxPoint> = getExplodePositions(FlxAngle.angleBetween(this, obj, true));
+				var tempAst:Asteroid;
+				for (point in spawnPoints) {
+					tempAst = (cast (FlxG.state, PlayState)).asteroids.recycle(Asteroid);
+					tempAst.velocity.copyFrom(point);
+					point.scale(40 / point.distanceTo(FlxPoint.weak()));
+					tempAst.x = x + point.x;
+					tempAst.y = y + point.y;
+					tempAst.color = color;
+					tempAst.team = team;
+					tempAst.changeSize(size + 1);
+				}
+				(cast (FlxG.state, PlayState)).ASTEROIDS_CHANGED = true;
+				this.kill();
 			}
 			else {
 				obj.kill();
-				if ((cast (obj, Player)).playerColor == FlxColor.RED)
-					return FlxColor.BLUE;
-				else
-					return FlxColor.RED;
+				return true;
 			}
 		}
 		else if (Std.is(obj, Bullet)) {
-			if ((cast (obj, Bullet)).bulletColor != color) {
-				color = (cast (obj, Bullet)).bulletColor;
+			if ((cast (obj, Bullet)).team != team) {
+				team = (cast (obj, Bullet)).team;
+				if (team == BLUE)
+					color = 0xff0000a0;
+				else
+					color = 0xff800000;
 				obj.kill();
 			}
 		}
-		return FlxColor.WHITE;
+		return false;
 	}
 	
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		switchSides();
+		AstUtil.switchSides(this);
 	}
 }

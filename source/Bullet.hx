@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
+import TeamType;
 
 /**
  * ...
@@ -15,36 +16,21 @@ class Bullet extends FlxSprite
 	static private var LENGTH(default, never):Int = 6;
 	static private var WIDTH(default, never):Int = 3;
 	static private var SPEED(default, never):Float = 200;
-	public var bulletColor:FlxColor;
+	public var team:TeamType;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(LENGTH, WIDTH);
-		color = FlxColor.WHITE;
-	}
-	
-	private function switchSides() {
-		if (x < -5) {
-			x = FlxG.width;
-		}
-		else if (x > FlxG.width) {
-			x = -5;
-		}
-		if (y < -5) {
-			y = FlxG.height;
-		}
-		else if (y > FlxG.height) {
-			y = -5;
-		}
+		team = TeamType.NONE;
 	}
 	
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		switchSides();
+		AstUtil.switchSides(this);
 	}
 	
-	public function shoot(startPoint:FlxPoint, direction:Float, newColor:FlxColor) {
+	public function shoot(startPoint:FlxPoint, playerVelocity:FlxPoint, direction:Float, Team:TeamType) {
 		super.reset(startPoint.x, startPoint.y);
 		angle = direction;
 		
@@ -52,8 +38,12 @@ class Bullet extends FlxSprite
 		_point.rotate(FlxPoint.weak(0, 0), angle-90);
 		velocity.x = _point.x;
 		velocity.y = _point.y;
+		velocity = velocity.addPoint(playerVelocity);
 		
-		bulletColor = newColor;
-		color = newColor;
+		team = Team;
+		if (team == TeamType.BLUE)
+			color = FlxColor.BLUE;
+		else
+			color = FlxColor.RED;
 	}
 }
