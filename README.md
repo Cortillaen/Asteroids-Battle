@@ -3,12 +3,12 @@ A two-player competitive game based on the classic Asteroids written by Trenton 
 ## Game Overview
 After decades of blowing asteroids into progressively smaller chunks of rock, our plucky spaceship pilots realized they could be doing so much more... and decided to blow up each other, instead.  Since everyone uses the same blaster, creating shields to nullify each other's shots was trivial.  To get around this, a new type of blaster was developed that polarizes asteroids to a pilot's custom shield wavelength, allowing pilots to ram the polarized asteroids without harm and produce shrapnel deadly to anyone else.
 Two factions coallesced from the following carnage, and now the Blue and Red alliances wage a pointless war amongst the asteroids they used to blast just as pointlessly.  Isn't life grand?
+
+[Give it a try here!](https://cortillaen.github.io/Asteroids-Battle/)
+![Screenshot](/docs/Demo.png?raw=true)
 ## Controls
 * Player Blue controls his ship via W (forward thrust), A (rotate left), D (rotate right), S (brake), and LeftControl/Space (shoot).
 * Player Red uses Numpad-8, Numpad-4, Numpad-6, Numpad-5, and Numpad-0/Numpad-Enter.
-![Screenshot](/docs/Demo.png?raw=true)
-
-[Give it a try here!](https://cortillaen.github.io/Asteroids-Battle/)
 ## Tips
 * Somebody finally figured out how to install spacebrakes on these ships, and they're pretty powerful.  It's about time.
 * A maximum of five shots can exist in a battlefield at once, and firing a sixth will cause the oldest shot to destabilize and vanish, even if it was fired by the enemy.  Nobody really knows why this happens, but there's probably a lesson there about the connectedness and oneness of all things.  Too bad they're all too busy trying to kill each other to notice.
