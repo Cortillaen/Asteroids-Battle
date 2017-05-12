@@ -65,7 +65,7 @@ class PlayState extends FlxState
 					++BLUE_SCORE;
 				var showText = new FlxText(0, 30, FlxG.width, (p.team == BLUE ? "RED" : "BLUE") + " Player Wins!\n\nPress R to restart.\nPress Esc to return to menu.", 40);
 				showText.alignment = FlxTextAlign.CENTER;
-				showText.addFormat(new FlxTextFormat((p.team == BLUE ? FlxColor.RED : FlxColor.BLUE), true, false, FlxColor.BLACK));
+				showText.color = (p.team == BLUE ? FlxColor.RED : FlxColor.BLUE);
 				var blueScoreText = new FlxText(100, 300, 170, "BLUE:\n" + BLUE_SCORE, 50);
 				blueScoreText.alignment = FlxTextAlign.CENTER;
 				blueScoreText.color = FlxColor.BLUE;
