@@ -76,7 +76,7 @@ ApplicationMain.init = function() {
 	}
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "223", company : "TRN", file : "AsteroidsBattle", fps : 60, name : "Asteroids Battle", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : false, stencilBuffer : true, title : "Asteroids Battle", vsync : true, width : 640, x : null, y : null}]};
+	ApplicationMain.config = { build : "228", company : "TRN", file : "AsteroidsBattle", fps : 60, name : "Asteroids Battle", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : false, stencilBuffer : true, title : "Asteroids Battle", vsync : true, width : 640, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;
@@ -5721,7 +5721,7 @@ MenuState.prototype = $extend(flixel_FlxState.prototype,{
 		instructions.set_alignment("center");
 		this.mainGroup.add(instructions);
 		this.add(this.mainGroup);
-		var instructionText = new flixel_text_FlxText(25,25,flixel_FlxG.width - 25,"Player Blue is controlled with WASD and Ctrl or Space to shoot.\n\n" + "Player Red is controlled with Numpad 8456 and 0 or Enter to shoot.\n\nYour shots do nothing to the enemy but can change asteroids " + "to your color.  Colliding with an asteroid of your own color splits it into 3 smaller asteroids, but colliding with one " + "that is white or the enemy's color will destroy you.\n\nFight tactically and create a field of hazards for your opponent!",22);
+		var instructionText = new flixel_text_FlxText(25,25,flixel_FlxG.width - 25,"Player Blue is controlled with WASD and Space to shoot.\n\n" + "Player Red is controlled with Home, Delete, End, PageDown, and Control to shoot.\n\nYour shots do nothing to the enemy but can change asteroids " + "to your color.  Colliding with an asteroid of your own color splits it into 3 smaller asteroids, but colliding with one " + "that is white or the enemy's color will destroy you.\n\nFight tactically and create a field of hazards for your opponent!",22);
 		this.instructionsGroup.add(instructionText);
 		var exit = new flixel_text_FlxText(0,420,flixel_FlxG.width,"Return",50);
 		exit.set_alignment("center");
@@ -74501,8 +74501,8 @@ Bullet.WIDTH = 3;
 Bullet.SPEED = 200;
 openfl_text_Font.__registeredFonts = [];
 MenuState.IMAGE = "assets/images/Ship.png";
-PlayState.P1_KEYS = [[87],[83],[65],[68],[17,32]];
-PlayState.P2_KEYS = [[104],[101],[100],[102],[96,13]];
+PlayState.P1_KEYS = [[87],[83],[65],[68],[32]];
+PlayState.P2_KEYS = [[36],[35],[46],[34],[17]];
 Player.ACCEL = 60;
 Player.ROTATION_RATE = 3;
 Player.BULLET_OFFSET = 10;
