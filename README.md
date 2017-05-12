@@ -20,7 +20,7 @@ Two factions coallesced from the following carnage, and now the Blue and Red all
 2. Next, make sure you have [Haxe](http://www.haxe.org/download) and [HaxeFlixel](http://www.haxeflixel.com) installed on your computer.  Make sure you also follow the instructions on setting up the lime command.
 3. Now download this repository to your computer (use the "Clone or Download" button) and open a command prompt in the Asteroids-Battle folder.
 3. Run the command "lime test neko" to build and run the game.
- * After the first run, an executable will be created in '\Asteroids-Battle\export\windows\neko\bin' that you can use instead of the command line.
+ * After the first run, an executable will be created in `\Asteroids-Battle\export\windows\neko\bin` that you can use instead of the command line.
 ## Future Plans
 If I have time to do more work on this, here are some features I'd like to implement:
 * User-configurable options for starting number of asteroids, number produced when shattered, max speeds, and other current constants.
