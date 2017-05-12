@@ -26,11 +26,7 @@ ApplicationMain.create = function() {
 	var types = [];
 	urls.push("assets/data/data-goes-here.txt");
 	types.push("TEXT");
-	urls.push("assets/images/Asteroid-bak.png");
-	types.push("IMAGE");
 	urls.push("assets/images/Asteroid.png");
-	types.push("IMAGE");
-	urls.push("assets/images/Asteroid1.png");
 	types.push("IMAGE");
 	urls.push("assets/images/images-go-here.txt");
 	types.push("TEXT");
@@ -80,7 +76,7 @@ ApplicationMain.init = function() {
 	}
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "176", company : "TRN", file : "AsteroidsBattle", fps : 60, name : "Asteroids Battle", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : false, stencilBuffer : true, title : "Asteroids Battle", vsync : true, width : 640, x : null, y : null}]};
+	ApplicationMain.config = { build : "223", company : "TRN", file : "AsteroidsBattle", fps : 60, name : "Asteroids Battle", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : false, stencilBuffer : true, title : "Asteroids Battle", vsync : true, width : 640, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;
@@ -4482,7 +4478,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this1.h[id] = value;
 	}
-	id = "assets/images/Asteroid-bak.png";
+	id = "assets/images/Asteroid.png";
 	var _this2 = this.path;
 	if(__map_reserved[id] != null) {
 		_this2.setReserved(id,id);
@@ -4496,7 +4492,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this3.h[id] = value1;
 	}
-	id = "assets/images/Asteroid.png";
+	id = "assets/images/images-go-here.txt";
 	var _this4 = this.path;
 	if(__map_reserved[id] != null) {
 		_this4.setReserved(id,id);
@@ -4504,13 +4500,13 @@ var DefaultAssetLibrary = function() {
 		_this4.h[id] = id;
 	}
 	var _this5 = this.type;
-	var value2 = "IMAGE";
+	var value2 = "TEXT";
 	if(__map_reserved[id] != null) {
 		_this5.setReserved(id,value2);
 	} else {
 		_this5.h[id] = value2;
 	}
-	id = "assets/images/Asteroid1.png";
+	id = "assets/images/Ship.png";
 	var _this6 = this.path;
 	if(__map_reserved[id] != null) {
 		_this6.setReserved(id,id);
@@ -4524,7 +4520,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this7.h[id] = value3;
 	}
-	id = "assets/images/images-go-here.txt";
+	id = "assets/music/music-goes-here.txt";
 	var _this8 = this.path;
 	if(__map_reserved[id] != null) {
 		_this8.setReserved(id,id);
@@ -4538,7 +4534,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this9.h[id] = value4;
 	}
-	id = "assets/images/Ship.png";
+	id = "assets/sounds/sounds-go-here.txt";
 	var _this10 = this.path;
 	if(__map_reserved[id] != null) {
 		_this10.setReserved(id,id);
@@ -4546,13 +4542,13 @@ var DefaultAssetLibrary = function() {
 		_this10.h[id] = id;
 	}
 	var _this11 = this.type;
-	var value5 = "IMAGE";
+	var value5 = "TEXT";
 	if(__map_reserved[id] != null) {
 		_this11.setReserved(id,value5);
 	} else {
 		_this11.h[id] = value5;
 	}
-	id = "assets/music/music-goes-here.txt";
+	id = "flixel/sounds/beep.ogg";
 	var _this12 = this.path;
 	if(__map_reserved[id] != null) {
 		_this12.setReserved(id,id);
@@ -4560,13 +4556,13 @@ var DefaultAssetLibrary = function() {
 		_this12.h[id] = id;
 	}
 	var _this13 = this.type;
-	var value6 = "TEXT";
+	var value6 = "SOUND";
 	if(__map_reserved[id] != null) {
 		_this13.setReserved(id,value6);
 	} else {
 		_this13.h[id] = value6;
 	}
-	id = "assets/sounds/sounds-go-here.txt";
+	id = "flixel/sounds/flixel.ogg";
 	var _this14 = this.path;
 	if(__map_reserved[id] != null) {
 		_this14.setReserved(id,id);
@@ -4574,97 +4570,69 @@ var DefaultAssetLibrary = function() {
 		_this14.h[id] = id;
 	}
 	var _this15 = this.type;
-	var value7 = "TEXT";
+	var value7 = "SOUND";
 	if(__map_reserved[id] != null) {
 		_this15.setReserved(id,value7);
 	} else {
 		_this15.h[id] = value7;
 	}
-	id = "flixel/sounds/beep.ogg";
-	var _this16 = this.path;
+	id = "flixel/fonts/nokiafc22.ttf";
+	var _this16 = this.className;
+	var value8 = _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf;
 	if(__map_reserved[id] != null) {
-		_this16.setReserved(id,id);
+		_this16.setReserved(id,value8);
 	} else {
-		_this16.h[id] = id;
+		_this16.h[id] = value8;
 	}
 	var _this17 = this.type;
-	var value8 = "SOUND";
+	var value9 = "FONT";
 	if(__map_reserved[id] != null) {
-		_this17.setReserved(id,value8);
+		_this17.setReserved(id,value9);
 	} else {
-		_this17.h[id] = value8;
-	}
-	id = "flixel/sounds/flixel.ogg";
-	var _this18 = this.path;
-	if(__map_reserved[id] != null) {
-		_this18.setReserved(id,id);
-	} else {
-		_this18.h[id] = id;
-	}
-	var _this19 = this.type;
-	var value9 = "SOUND";
-	if(__map_reserved[id] != null) {
-		_this19.setReserved(id,value9);
-	} else {
-		_this19.h[id] = value9;
-	}
-	id = "flixel/fonts/nokiafc22.ttf";
-	var _this20 = this.className;
-	var value10 = _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf;
-	if(__map_reserved[id] != null) {
-		_this20.setReserved(id,value10);
-	} else {
-		_this20.h[id] = value10;
-	}
-	var _this21 = this.type;
-	var value11 = "FONT";
-	if(__map_reserved[id] != null) {
-		_this21.setReserved(id,value11);
-	} else {
-		_this21.h[id] = value11;
+		_this17.h[id] = value9;
 	}
 	id = "flixel/fonts/monsterrat.ttf";
-	var _this22 = this.className;
-	var value12 = _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf;
+	var _this18 = this.className;
+	var value10 = _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf;
 	if(__map_reserved[id] != null) {
-		_this22.setReserved(id,value12);
+		_this18.setReserved(id,value10);
 	} else {
-		_this22.h[id] = value12;
+		_this18.h[id] = value10;
+	}
+	var _this19 = this.type;
+	var value11 = "FONT";
+	if(__map_reserved[id] != null) {
+		_this19.setReserved(id,value11);
+	} else {
+		_this19.h[id] = value11;
+	}
+	id = "flixel/images/ui/button.png";
+	var _this20 = this.path;
+	if(__map_reserved[id] != null) {
+		_this20.setReserved(id,id);
+	} else {
+		_this20.h[id] = id;
+	}
+	var _this21 = this.type;
+	var value12 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this21.setReserved(id,value12);
+	} else {
+		_this21.h[id] = value12;
+	}
+	id = "flixel/images/logo/default.png";
+	var _this22 = this.path;
+	if(__map_reserved[id] != null) {
+		_this22.setReserved(id,id);
+	} else {
+		_this22.h[id] = id;
 	}
 	var _this23 = this.type;
-	var value13 = "FONT";
+	var value13 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this23.setReserved(id,value13);
 	} else {
 		_this23.h[id] = value13;
-	}
-	id = "flixel/images/ui/button.png";
-	var _this24 = this.path;
-	if(__map_reserved[id] != null) {
-		_this24.setReserved(id,id);
-	} else {
-		_this24.h[id] = id;
-	}
-	var _this25 = this.type;
-	var value14 = "IMAGE";
-	if(__map_reserved[id] != null) {
-		_this25.setReserved(id,value14);
-	} else {
-		_this25.h[id] = value14;
-	}
-	id = "flixel/images/logo/default.png";
-	var _this26 = this.path;
-	if(__map_reserved[id] != null) {
-		_this26.setReserved(id,id);
-	} else {
-		_this26.h[id] = id;
-	}
-	var _this27 = this.type;
-	var value15 = "IMAGE";
-	if(__map_reserved[id] != null) {
-		_this27.setReserved(id,value15);
-	} else {
-		_this27.h[id] = value15;
 	}
 	var assetsPrefix = null;
 	if(ApplicationMain.config != null && Object.prototype.hasOwnProperty.call(ApplicationMain.config,"assetsPrefix")) {
@@ -4675,13 +4643,13 @@ var DefaultAssetLibrary = function() {
 		while(k.hasNext()) {
 			var k1 = k.next();
 			var this1 = this.path;
-			var _this28 = this.path;
-			var value16 = assetsPrefix + (__map_reserved[k1] != null ? _this28.getReserved(k1) : _this28.h[k1]);
-			var _this29 = this1;
+			var _this24 = this.path;
+			var value14 = assetsPrefix + (__map_reserved[k1] != null ? _this24.getReserved(k1) : _this24.h[k1]);
+			var _this25 = this1;
 			if(__map_reserved[k1] != null) {
-				_this29.setReserved(k1,value16);
+				_this25.setReserved(k1,value14);
 			} else {
-				_this29.h[k1] = value16;
+				_this25.h[k1] = value14;
 			}
 		}
 	}
@@ -5946,7 +5914,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 				}
 				var showText = new flixel_text_FlxText(0,30,flixel_FlxG.width,(p.team == TeamType.BLUE ? "RED" : "BLUE") + " Player Wins!\n\nPress R to restart.\nPress Esc to return to menu.",40);
 				showText.set_alignment("center");
-				showText.addFormat(new flixel_text_FlxTextFormat(p.team == TeamType.BLUE ? -65536 : -16776961,true,false,-16777216));
+				showText.set_color(p.team == TeamType.BLUE ? -65536 : -16776961);
 				var blueScoreText = new flixel_text_FlxText(100,300,170,"BLUE:\n" + PlayState.BLUE_SCORE,50);
 				blueScoreText.set_alignment("center");
 				blueScoreText.set_color(-16776961);
@@ -10291,6 +10259,7 @@ flixel_FlxG.keys = null;
 flixel_FlxG.gamepads = null;
 flixel_FlxG.vcr = null;
 flixel_FlxG.plugins = null;
+flixel_FlxG.sound = null;
 flixel_FlxG.resizeGame = function(Width,Height) {
 	flixel_FlxG.scaleMode.onMeasure(Width,Height);
 };
@@ -10365,6 +10334,7 @@ flixel_FlxG.init = function(Game,Width,Height,Zoom) {
 	flixel_FlxG.save.bind("flixel");
 	flixel_FlxG.plugins = new flixel_system_frontEnds_PluginFrontEnd();
 	flixel_FlxG.vcr = new flixel_system_frontEnds_VCRFrontEnd();
+	flixel_FlxG.sound = new flixel_system_frontEnds_SoundFrontEnd();
 };
 flixel_FlxG.initRenderMethod = function() {
 	flixel_FlxG.renderMethod = flixel_FlxRenderMethod.BLITTING;
@@ -10400,6 +10370,7 @@ flixel_FlxG.reset = function() {
 	_this.initialSeed = (_this.internalSeed = (lowerBound2 > 2147483646 ? 2147483646 : lowerBound2) | 0) | 0;
 	flixel_FlxG.bitmap.reset();
 	flixel_FlxG.inputs.reset();
+	flixel_FlxG.sound.destroy(true);
 	flixel_FlxG.autoPause = true;
 	flixel_FlxG.fixedTimestep = true;
 	flixel_FlxG.timeScale = 1.0;
@@ -10509,6 +10480,7 @@ var flixel_FlxGame = function(GameWidth,GameHeight,InitialState,Zoom,UpdateFrame
 	this._resetGame = false;
 	this._skipSplash = false;
 	this._customFocusLostScreen = flixel_system_ui_FlxFocusLostScreen;
+	this._customSoundTray = flixel_system_ui_FlxSoundTray;
 	this._lostFocus = false;
 	this._startTime = 0;
 	this._total = 0;
@@ -10550,6 +10522,8 @@ flixel_FlxGame.prototype = $extend(openfl_display_Sprite.prototype,{
 		this.stage.align = 6;
 		this.stage.set_frameRate(flixel_FlxG.drawFramerate);
 		this.addChild(this._inputContainer);
+		this.soundTray = Type.createInstance(this._customSoundTray,[]);
+		this.addChild(this.soundTray);
 		this._focusLostScreen = Type.createInstance(this._customFocusLostScreen,[]);
 		this.addChild(this._focusLostScreen);
 		this.stage.addEventListener("deactivate",$bind(this,this.onFocusLost));
@@ -10587,6 +10561,7 @@ flixel_FlxGame.prototype = $extend(openfl_display_Sprite.prototype,{
 			this._focusLostScreen.set_visible(false);
 		}
 		this.stage.set_frameRate(flixel_FlxG.drawFramerate);
+		flixel_FlxG.sound.onFocus();
 		var _g = 0;
 		var _g1 = flixel_FlxG.inputs.list;
 		while(_g < _g1.length) {
@@ -10606,6 +10581,7 @@ flixel_FlxGame.prototype = $extend(openfl_display_Sprite.prototype,{
 			this._focusLostScreen.set_visible(true);
 		}
 		this.stage.set_frameRate(this.focusLostFramerate);
+		flixel_FlxG.sound.onFocusLost();
 		var _g = 0;
 		var _g1 = flixel_FlxG.inputs.list;
 		while(_g < _g1.length) {
@@ -10630,11 +10606,17 @@ flixel_FlxGame.prototype = $extend(openfl_display_Sprite.prototype,{
 		if(this._focusLostScreen != null) {
 			this._focusLostScreen.draw();
 		}
+		if(this.soundTray != null) {
+			this.soundTray.screenCenter();
+		}
 	}
 	,onEnterFrame: function(_) {
 		this.ticks = this.getTimer() - this._startTime;
 		this._elapsedMS = this.ticks - this._total;
 		this._total = this.ticks;
+		if(this.soundTray != null && this.soundTray.active) {
+			this.soundTray.update(this._elapsedMS);
+		}
 		if(!this._lostFocus || !flixel_FlxG.autoPause) {
 			if(flixel_FlxG.vcr.paused) {
 				if(flixel_FlxG.vcr.stepRequested) {
@@ -10674,6 +10656,7 @@ flixel_FlxGame.prototype = $extend(openfl_display_Sprite.prototype,{
 	,switchState: function() {
 		flixel_FlxG.cameras.reset();
 		flixel_FlxG.inputs.onStateSwitch();
+		flixel_FlxG.sound.destroy();
 		flixel_FlxG.signals.stateSwitched.dispatch();
 		if(this._state != null) {
 			this._state.destroy();
@@ -10722,6 +10705,7 @@ flixel_FlxGame.prototype = $extend(openfl_display_Sprite.prototype,{
 		this.updateElapsed();
 		flixel_FlxG.signals.preUpdate.dispatch();
 		this.updateInput();
+		flixel_FlxG.sound.update(flixel_FlxG.elapsed);
 		var elapsed = flixel_FlxG.elapsed;
 		var _g = 0;
 		var _g1 = flixel_FlxG.plugins.list;
@@ -24739,6 +24723,430 @@ flixel_system_FlxQuadTree.prototype = $extend(flixel_math_FlxRect.prototype,{
 	}
 	,__class__: flixel_system_FlxQuadTree
 });
+var flixel_system_FlxSound = function() {
+	this._alreadyPaused = false;
+	this._volumeAdjust = 1.0;
+	this._length = 0;
+	this._time = 0;
+	this.loopTime = 0;
+	flixel_FlxBasic.call(this);
+	this.reset();
+};
+$hxClasses["flixel.system.FlxSound"] = flixel_system_FlxSound;
+flixel_system_FlxSound.__name__ = ["flixel","system","FlxSound"];
+flixel_system_FlxSound.__super__ = flixel_FlxBasic;
+flixel_system_FlxSound.prototype = $extend(flixel_FlxBasic.prototype,{
+	reset: function() {
+		this.destroy();
+		this.x = 0;
+		this.y = 0;
+		this._time = 0;
+		this._paused = false;
+		this._volume = 1.0;
+		this._volumeAdjust = 1.0;
+		this.looped = false;
+		this.loopTime = 0.0;
+		this.endTime = 0.0;
+		this._target = null;
+		this._radius = 0;
+		this._proximityPan = false;
+		this.set_visible(false);
+		this.amplitude = 0;
+		this.amplitudeLeft = 0;
+		this.amplitudeRight = 0;
+		this.autoDestroy = false;
+		if(this._transform == null) {
+			this._transform = new openfl_media_SoundTransform();
+		}
+		this._transform.pan = 0;
+	}
+	,destroy: function() {
+		this._transform = null;
+		this.set_exists(false);
+		this.set_active(false);
+		this._target = null;
+		this.name = null;
+		this.artist = null;
+		if(this._channel != null) {
+			this._channel.removeEventListener("soundComplete",$bind(this,this.stopped));
+			this._channel.stop();
+			this._channel = null;
+		}
+		if(this._sound != null) {
+			this._sound.removeEventListener("id3",$bind(this,this.gotID3));
+			this._sound = null;
+		}
+		this.onComplete = null;
+		flixel_FlxBasic.prototype.destroy.call(this);
+	}
+	,update: function(elapsed) {
+		if(this._channel == null) {
+			return;
+		}
+		this._time = this._channel.get_position();
+		var radialMultiplier = 1.0;
+		if(this._target != null) {
+			var targetPosition = this._target.getPosition();
+			var X = this.x;
+			var Y = this.y;
+			var point = flixel_math_FlxPoint._pool.get().set(X,Y);
+			point._inPool = false;
+			var point1 = point;
+			point1._weak = true;
+			radialMultiplier = targetPosition.distanceTo(point1) / this._radius;
+			targetPosition.put();
+			var lowerBound = radialMultiplier < 0 ? 0 : radialMultiplier;
+			radialMultiplier = 1 - (lowerBound > 1 ? 1 : lowerBound);
+			if(this._proximityPan) {
+				var d = (this.x - this._target.x) / this._radius;
+				var lowerBound1 = d < -1 ? -1 : d;
+				this._transform.pan = lowerBound1 > 1 ? 1 : lowerBound1;
+			}
+		}
+		this._volumeAdjust = radialMultiplier;
+		this.updateTransform();
+		if(this._transform.volume > 0) {
+			this.amplitudeLeft = this._channel.leftPeak / this._transform.volume;
+			this.amplitudeRight = this._channel.rightPeak / this._transform.volume;
+			this.amplitude = (this.amplitudeLeft + this.amplitudeRight) * 0.5;
+		} else {
+			this.amplitudeLeft = 0;
+			this.amplitudeRight = 0;
+			this.amplitude = 0;
+		}
+		if(this.endTime != null && this._time >= this.endTime) {
+			this.stopped();
+		}
+	}
+	,kill: function() {
+		flixel_FlxBasic.prototype.kill.call(this);
+		this.cleanup(false);
+	}
+	,loadEmbedded: function(EmbeddedSound,Looped,AutoDestroy,OnComplete) {
+		if(AutoDestroy == null) {
+			AutoDestroy = false;
+		}
+		if(Looped == null) {
+			Looped = false;
+		}
+		if(EmbeddedSound == null) {
+			return this;
+		}
+		this.cleanup(true);
+		if(js_Boot.__instanceof(EmbeddedSound,openfl_media_Sound)) {
+			this._sound = EmbeddedSound;
+		} else if(js_Boot.__instanceof(EmbeddedSound,Class)) {
+			this._sound = Type.createInstance(EmbeddedSound,[]);
+		} else if(typeof(EmbeddedSound) == "string") {
+			if(openfl_Assets.exists(EmbeddedSound,"SOUND") || openfl_Assets.exists(EmbeddedSound,"MUSIC")) {
+				this._sound = openfl_Assets.getSound(EmbeddedSound);
+			} else {
+				var _this = flixel_FlxG.log;
+			}
+		}
+		return this.init(Looped,AutoDestroy,OnComplete);
+	}
+	,loadStream: function(SoundURL,Looped,AutoDestroy,OnComplete) {
+		if(AutoDestroy == null) {
+			AutoDestroy = false;
+		}
+		if(Looped == null) {
+			Looped = false;
+		}
+		this.cleanup(true);
+		this._sound = new openfl_media_Sound();
+		this._sound.addEventListener("id3",$bind(this,this.gotID3));
+		this._sound.load(new openfl_net_URLRequest(SoundURL));
+		return this.init(Looped,AutoDestroy,OnComplete);
+	}
+	,init: function(Looped,AutoDestroy,OnComplete) {
+		if(AutoDestroy == null) {
+			AutoDestroy = false;
+		}
+		if(Looped == null) {
+			Looped = false;
+		}
+		this.looped = Looped;
+		this.autoDestroy = AutoDestroy;
+		this.updateTransform();
+		this.set_exists(true);
+		this.onComplete = OnComplete;
+		this._length = this._sound == null ? 0 : this._sound.get_length();
+		this.endTime = this._length;
+		return this;
+	}
+	,proximity: function(X,Y,TargetObject,Radius,Pan) {
+		if(Pan == null) {
+			Pan = true;
+		}
+		this.x = X;
+		this.y = Y;
+		this._target = TargetObject;
+		this._radius = Radius;
+		this._proximityPan = Pan;
+		return this;
+	}
+	,play: function(ForceRestart,StartTime,EndTime) {
+		if(StartTime == null) {
+			StartTime = 0.0;
+		}
+		if(ForceRestart == null) {
+			ForceRestart = false;
+		}
+		if(!this.exists) {
+			return this;
+		}
+		if(ForceRestart) {
+			this.cleanup(false,true);
+		} else if(this._channel != null) {
+			return this;
+		}
+		if(this._paused) {
+			this.resume();
+		} else {
+			this.startSound(StartTime);
+		}
+		this.endTime = EndTime;
+		return this;
+	}
+	,resume: function() {
+		if(this._paused) {
+			this.startSound(this._time);
+		}
+		return this;
+	}
+	,pause: function() {
+		if(this._channel == null) {
+			return this;
+		}
+		this._time = this._channel.get_position();
+		this._paused = true;
+		this.cleanup(false,false);
+		return this;
+	}
+	,stop: function() {
+		this.cleanup(this.autoDestroy,true);
+		return this;
+	}
+	,fadeOut: function(Duration,To,onComplete) {
+		if(To == null) {
+			To = 0;
+		}
+		if(Duration == null) {
+			Duration = 1;
+		}
+		if(this.fadeTween != null) {
+			this.fadeTween.cancel();
+		}
+		this.fadeTween = flixel_tweens_FlxTween.num(this._volume,To,Duration,{ onComplete : onComplete},$bind(this,this.volumeTween));
+		return this;
+	}
+	,fadeIn: function(Duration,From,To,onComplete) {
+		if(To == null) {
+			To = 1;
+		}
+		if(From == null) {
+			From = 0;
+		}
+		if(Duration == null) {
+			Duration = 1;
+		}
+		if(this._channel == null) {
+			this.play();
+		}
+		if(this.fadeTween != null) {
+			this.fadeTween.cancel();
+		}
+		this.fadeTween = flixel_tweens_FlxTween.num(From,To,Duration,{ onComplete : onComplete},$bind(this,this.volumeTween));
+		return this;
+	}
+	,volumeTween: function(f) {
+		this.set_volume(f);
+	}
+	,getActualVolume: function() {
+		return this._volume * this._volumeAdjust;
+	}
+	,setPosition: function(X,Y) {
+		if(Y == null) {
+			Y = 0;
+		}
+		if(X == null) {
+			X = 0;
+		}
+		this.x = X;
+		this.y = Y;
+	}
+	,updateTransform: function() {
+		this._transform.volume = (flixel_FlxG.sound.muted ? 0 : 1) * flixel_FlxG.sound.volume * (this.group != null ? this.group.volume : 1) * this._volume * this._volumeAdjust;
+		if(this._channel != null) {
+			this._channel.set_soundTransform(this._transform);
+		}
+	}
+	,startSound: function(StartTime) {
+		if(this._sound == null) {
+			return;
+		}
+		this._time = StartTime;
+		this._paused = false;
+		this._channel = this._sound.play(this._time,0,this._transform);
+		if(this._channel != null) {
+			this._channel.addEventListener("soundComplete",$bind(this,this.stopped));
+			this.set_active(true);
+		} else {
+			this.set_exists(false);
+			this.set_active(false);
+		}
+	}
+	,stopped: function(_) {
+		if(this.onComplete != null) {
+			this.onComplete();
+		}
+		if(this.looped) {
+			this.cleanup(false);
+			this.play(false,this.loopTime,this.endTime);
+		} else {
+			this.cleanup(this.autoDestroy);
+		}
+	}
+	,cleanup: function(destroySound,resetPosition) {
+		if(resetPosition == null) {
+			resetPosition = true;
+		}
+		if(destroySound) {
+			this.reset();
+			return;
+		}
+		if(this._channel != null) {
+			this._channel.removeEventListener("soundComplete",$bind(this,this.stopped));
+			this._channel.stop();
+			this._channel = null;
+		}
+		this.set_active(false);
+		if(resetPosition) {
+			this._time = 0;
+			this._paused = false;
+		}
+	}
+	,gotID3: function(_) {
+		this.name = this._sound.get_id3().songName;
+		this.artist = this._sound.get_id3().artist;
+		this._sound.removeEventListener("id3",$bind(this,this.gotID3));
+	}
+	,onFocus: function() {
+		if(!this._alreadyPaused) {
+			this.resume();
+		}
+	}
+	,onFocusLost: function() {
+		this._alreadyPaused = this._paused;
+		this.pause();
+	}
+	,set_group: function(group) {
+		if(this.group != group) {
+			var oldGroup = this.group;
+			this.group = group;
+			if(oldGroup != null) {
+				oldGroup.remove(this);
+			}
+			if(group != null) {
+				group.add(this);
+			}
+			this.updateTransform();
+		}
+		return group;
+	}
+	,get_playing: function() {
+		return this._channel != null;
+	}
+	,get_volume: function() {
+		return this._volume;
+	}
+	,set_volume: function(Volume) {
+		var lowerBound = Volume < 0 ? 0 : Volume;
+		this._volume = lowerBound > 1 ? 1 : lowerBound;
+		this.updateTransform();
+		return Volume;
+	}
+	,get_pan: function() {
+		return this._transform.pan;
+	}
+	,set_pan: function(pan) {
+		return this._transform.pan = pan;
+	}
+	,get_time: function() {
+		return this._time;
+	}
+	,set_time: function(time) {
+		if(this._channel != null) {
+			this.cleanup(false,true);
+			this.startSound(time);
+		}
+		return this._time = time;
+	}
+	,get_length: function() {
+		return this._length;
+	}
+	,toString: function() {
+		var value = this._channel != null;
+		var _this = flixel_util_LabelValuePair._pool.get();
+		_this.label = "playing";
+		_this.value = value;
+		var value1 = this._time;
+		var _this1 = flixel_util_LabelValuePair._pool.get();
+		_this1.label = "time";
+		_this1.value = value1;
+		var value2 = this._length;
+		var _this2 = flixel_util_LabelValuePair._pool.get();
+		_this2.label = "length";
+		_this2.value = value2;
+		var value3 = this._volume;
+		var _this3 = flixel_util_LabelValuePair._pool.get();
+		_this3.label = "volume";
+		_this3.value = value3;
+		return flixel_util_FlxStringUtil.getDebugString([_this,_this1,_this2,_this3]);
+	}
+	,__class__: flixel_system_FlxSound
+	,__properties__: $extend(flixel_FlxBasic.prototype.__properties__,{set_group:"set_group",get_length:"get_length",set_time:"set_time",get_time:"get_time",set_volume:"set_volume",get_volume:"get_volume",get_playing:"get_playing",set_pan:"set_pan",get_pan:"get_pan"})
+});
+var flixel_system_FlxSoundGroup = function(volume) {
+	if(volume == null) {
+		volume = 1;
+	}
+	this.sounds = [];
+	this.set_volume(volume);
+};
+$hxClasses["flixel.system.FlxSoundGroup"] = flixel_system_FlxSoundGroup;
+flixel_system_FlxSoundGroup.__name__ = ["flixel","system","FlxSoundGroup"];
+flixel_system_FlxSoundGroup.prototype = {
+	add: function(sound) {
+		if(this.sounds.indexOf(sound) < 0) {
+			sound.set_group(this);
+			this.sounds.push(sound);
+			return true;
+		}
+		return false;
+	}
+	,remove: function(sound) {
+		if(this.sounds.indexOf(sound) >= 0) {
+			sound.set_group(null);
+			return HxOverrides.remove(this.sounds,sound);
+		}
+		return false;
+	}
+	,set_volume: function(volume) {
+		this.volume = volume;
+		var _g = 0;
+		var _g1 = this.sounds;
+		while(_g < _g1.length) {
+			var sound = _g1[_g];
+			++_g;
+			sound.updateTransform();
+		}
+		return volume;
+	}
+	,__class__: flixel_system_FlxSoundGroup
+	,__properties__: {set_volume:"set_volume"}
+};
 var flixel_system_FlxSplash = function(MaxSize) {
 	this._curPart = 0;
 	flixel_FlxState.call(this,MaxSize);
@@ -24780,6 +25188,9 @@ flixel_system_FlxSplash.prototype = $extend(flixel_FlxState.prototype,{
 		this._text.set_text("HaxeFlixel");
 		openfl_Lib.current.stage.addChild(this._text);
 		this.onResize(stageWidth,stageHeight);
+		var extension = "";
+		extension = ".ogg";
+		flixel_FlxG.sound.load(openfl_Assets.getSound("flixel/sounds/flixel" + extension)).play();
 	}
 	,destroy: function() {
 		this._sprite = null;
@@ -26817,6 +27228,256 @@ flixel_system_frontEnds_PluginFrontEnd.prototype = {
 	}
 	,__class__: flixel_system_frontEnds_PluginFrontEnd
 };
+var flixel_system_frontEnds_SoundFrontEnd = function() {
+	this.volume = 1;
+	this.list = new flixel_group_FlxTypedGroup();
+	this.defaultSoundGroup = new flixel_system_FlxSoundGroup();
+	this.defaultMusicGroup = new flixel_system_FlxSoundGroup();
+	this.soundTrayEnabled = true;
+	this.muteKeys = [48,96];
+	this.volumeDownKeys = [189,109];
+	this.volumeUpKeys = [187,107];
+	this.muted = false;
+	this.loadSavedPrefs();
+};
+$hxClasses["flixel.system.frontEnds.SoundFrontEnd"] = flixel_system_frontEnds_SoundFrontEnd;
+flixel_system_frontEnds_SoundFrontEnd.__name__ = ["flixel","system","frontEnds","SoundFrontEnd"];
+flixel_system_frontEnds_SoundFrontEnd.prototype = {
+	playMusic: function(Music,Volume,Looped,Group) {
+		if(Looped == null) {
+			Looped = true;
+		}
+		if(Volume == null) {
+			Volume = 1;
+		}
+		if(this.music == null) {
+			this.music = new flixel_system_FlxSound();
+		} else if(this.music.active) {
+			var _this = this.music;
+			_this.cleanup(_this.autoDestroy,true);
+		}
+		this.music.loadEmbedded(Music,Looped);
+		this.music.set_volume(Volume);
+		this.music.persist = true;
+		this.music.set_group(Group == null ? this.defaultMusicGroup : Group);
+		this.music.play();
+	}
+	,load: function(EmbeddedSound,Volume,Looped,Group,AutoDestroy,AutoPlay,URL,OnComplete) {
+		if(AutoPlay == null) {
+			AutoPlay = false;
+		}
+		if(AutoDestroy == null) {
+			AutoDestroy = false;
+		}
+		if(Looped == null) {
+			Looped = false;
+		}
+		if(Volume == null) {
+			Volume = 1;
+		}
+		if(EmbeddedSound == null && URL == null) {
+			var _this = flixel_FlxG.log;
+			return null;
+		}
+		var sound = this.list.recycle(flixel_system_FlxSound);
+		if(EmbeddedSound != null) {
+			sound.loadEmbedded(EmbeddedSound,Looped,AutoDestroy,OnComplete);
+		} else {
+			sound.loadStream(URL,Looped,AutoDestroy,OnComplete);
+		}
+		sound.set_volume(Volume);
+		if(AutoPlay) {
+			sound.play();
+		}
+		sound.set_group(Group == null ? this.defaultSoundGroup : Group);
+		return sound;
+	}
+	,cache: function(EmbeddedSound) {
+		if(openfl_Assets.exists(EmbeddedSound,"SOUND") || openfl_Assets.exists(EmbeddedSound,"MUSIC")) {
+			return openfl_Assets.getSound(EmbeddedSound,true);
+		}
+		var _this = flixel_FlxG.log;
+		return null;
+	}
+	,cacheAll: function() {
+		var _g = 0;
+		var _g1 = openfl_Assets.list("SOUND");
+		while(_g < _g1.length) {
+			var id = _g1[_g];
+			++_g;
+			if(openfl_Assets.exists(id,"SOUND") || openfl_Assets.exists(id,"MUSIC")) {
+				openfl_Assets.getSound(id,true);
+			} else {
+				var _this = flixel_FlxG.log;
+			}
+		}
+	}
+	,play: function(EmbeddedSound,Volume,Looped,Group,AutoDestroy,OnComplete) {
+		if(AutoDestroy == null) {
+			AutoDestroy = true;
+		}
+		if(Looped == null) {
+			Looped = false;
+		}
+		if(Volume == null) {
+			Volume = 1;
+		}
+		if(typeof(EmbeddedSound) == "string") {
+			if(openfl_Assets.exists(EmbeddedSound,"SOUND") || openfl_Assets.exists(EmbeddedSound,"MUSIC")) {
+				EmbeddedSound = openfl_Assets.getSound(EmbeddedSound,true);
+			} else {
+				var _this = flixel_FlxG.log;
+				EmbeddedSound = null;
+			}
+		}
+		var sound = this.list.recycle(flixel_system_FlxSound).loadEmbedded(EmbeddedSound,Looped,AutoDestroy,OnComplete);
+		sound.set_volume(Volume);
+		sound.set_group(Group == null ? this.defaultSoundGroup : Group);
+		return sound.play();
+	}
+	,stream: function(URL,Volume,Looped,Group,AutoDestroy,OnComplete) {
+		if(AutoDestroy == null) {
+			AutoDestroy = true;
+		}
+		if(Looped == null) {
+			Looped = false;
+		}
+		if(Volume == null) {
+			Volume = 1;
+		}
+		return this.load(null,Volume,Looped,null,AutoDestroy,true,URL,OnComplete);
+	}
+	,pause: function() {
+		if(this.music != null && this.music.exists && this.music.active) {
+			this.music.pause();
+		}
+		var _g = 0;
+		var _g1 = this.list.members;
+		while(_g < _g1.length) {
+			var sound = _g1[_g];
+			++_g;
+			if(sound != null && sound.exists && sound.active) {
+				sound.pause();
+			}
+		}
+	}
+	,resume: function() {
+		if(this.music != null && this.music.exists) {
+			this.music.resume();
+		}
+		var _g = 0;
+		var _g1 = this.list.members;
+		while(_g < _g1.length) {
+			var sound = _g1[_g];
+			++_g;
+			if(sound != null && sound.exists) {
+				sound.resume();
+			}
+		}
+	}
+	,destroy: function(ForceDestroy) {
+		if(ForceDestroy == null) {
+			ForceDestroy = false;
+		}
+		if(this.music != null && (ForceDestroy || !this.music.persist)) {
+			this.music.destroy();
+			this.music = null;
+		}
+		var _g = 0;
+		var _g1 = this.list.members;
+		while(_g < _g1.length) {
+			var sound = _g1[_g];
+			++_g;
+			if(sound != null && (ForceDestroy || !sound.persist)) {
+				sound.destroy();
+			}
+		}
+	}
+	,toggleMuted: function() {
+		this.muted = !this.muted;
+		if(this.volumeHandler != null) {
+			this.volumeHandler(this.muted ? 0 : this.volume);
+		}
+		this.showSoundTray();
+	}
+	,changeVolume: function(Amount) {
+		this.muted = false;
+		var _g = this;
+		_g.set_volume(_g.volume + Amount);
+		this.showSoundTray();
+	}
+	,showSoundTray: function() {
+		if(flixel_FlxG.game.soundTray != null && this.soundTrayEnabled) {
+			flixel_FlxG.game.soundTray.show();
+		}
+	}
+	,update: function(elapsed) {
+		if(this.music != null && this.music.active) {
+			this.music.update(elapsed);
+		}
+		if(this.list != null && this.list.active) {
+			this.list.update(elapsed);
+		}
+		if(flixel_FlxG.keys.checkKeyArrayState(this.muteKeys,-1)) {
+			this.toggleMuted();
+		} else if(flixel_FlxG.keys.checkKeyArrayState(this.volumeUpKeys,-1)) {
+			this.changeVolume(0.1);
+		} else if(flixel_FlxG.keys.checkKeyArrayState(this.volumeDownKeys,-1)) {
+			this.changeVolume(-0.1);
+		}
+	}
+	,onFocusLost: function() {
+		if(this.music != null) {
+			this.music.onFocusLost();
+		}
+		var _g = 0;
+		var _g1 = this.list.members;
+		while(_g < _g1.length) {
+			var sound = _g1[_g];
+			++_g;
+			if(sound != null) {
+				sound.onFocusLost();
+			}
+		}
+	}
+	,onFocus: function() {
+		if(this.music != null) {
+			this.music.onFocus();
+		}
+		var _g = 0;
+		var _g1 = this.list.members;
+		while(_g < _g1.length) {
+			var sound = _g1[_g];
+			++_g;
+			if(sound != null) {
+				sound.onFocus();
+			}
+		}
+	}
+	,loadSavedPrefs: function() {
+		if(flixel_FlxG.save.data.volume != null) {
+			this.set_volume(flixel_FlxG.save.data.volume);
+		}
+		if(flixel_FlxG.save.data.mute != null) {
+			this.muted = flixel_FlxG.save.data.mute;
+		}
+	}
+	,set_volume: function(Volume) {
+		var lowerBound = Volume < 0 ? 0 : Volume;
+		if(lowerBound > 1) {
+			Volume = 1;
+		} else {
+			Volume = lowerBound;
+		}
+		if(this.volumeHandler != null) {
+			var param = this.muted ? 0 : Volume;
+			this.volumeHandler(param);
+		}
+		return this.volume = Volume;
+	}
+	,__class__: flixel_system_frontEnds_SoundFrontEnd
+	,__properties__: {set_volume:"set_volume"}
+};
 var flixel_system_frontEnds_VCRFrontEnd = function() {
 	this.stepRequested = false;
 	this.paused = false;
@@ -26902,6 +27563,102 @@ flixel_system_ui_FlxFocusLostScreen.prototype = $extend(openfl_display_Sprite.pr
 		this.set_y(-flixel_FlxG.scaleMode.offset.y);
 	}
 	,__class__: flixel_system_ui_FlxFocusLostScreen
+});
+var flixel_system_ui_FlxSoundTray = function() {
+	this._defaultScale = 2.0;
+	this._width = 80;
+	openfl_display_Sprite.call(this);
+	this.set_visible(false);
+	this.set_scaleX(this._defaultScale);
+	this.set_scaleY(this._defaultScale);
+	var tmp = new openfl_display_Bitmap(new openfl_display_BitmapData(this._width,30,true,2130706432));
+	this.screenCenter();
+	this.addChild(tmp);
+	var text = new openfl_text_TextField();
+	text.set_width(tmp.get_width());
+	text.set_height(tmp.get_height());
+	text.set_multiline(true);
+	text.set_wordWrap(true);
+	text.set_selectable(false);
+	var dtf = new openfl_text_TextFormat(flixel_system_FlxAssets.FONT_DEFAULT,10,16777215);
+	dtf.align = 0;
+	text.set_defaultTextFormat(dtf);
+	this.addChild(text);
+	text.set_text("VOLUME");
+	text.set_y(16);
+	var bx = 10;
+	var by = 14;
+	this._bars = [];
+	var _g = 0;
+	while(_g < 10) {
+		var i = _g++;
+		tmp = new openfl_display_Bitmap(new openfl_display_BitmapData(4,i + 1,false,-1));
+		tmp.set_x(bx);
+		tmp.set_y(by);
+		this.addChild(tmp);
+		this._bars.push(tmp);
+		bx += 6;
+		--by;
+	}
+	this.set_y(-this.get_height());
+	this.set_visible(false);
+};
+$hxClasses["flixel.system.ui.FlxSoundTray"] = flixel_system_ui_FlxSoundTray;
+flixel_system_ui_FlxSoundTray.__name__ = ["flixel","system","ui","FlxSoundTray"];
+flixel_system_ui_FlxSoundTray.__super__ = openfl_display_Sprite;
+flixel_system_ui_FlxSoundTray.prototype = $extend(openfl_display_Sprite.prototype,{
+	update: function(MS) {
+		if(this._timer > 0) {
+			this._timer -= MS / 1000;
+		} else if(this.get_y() > -this.get_height()) {
+			var _g = this;
+			_g.set_y(_g.get_y() - MS / 1000 * flixel_FlxG.height * 2);
+			if(this.get_y() <= -this.get_height()) {
+				this.set_visible(false);
+				this.active = false;
+				flixel_FlxG.save.data.mute = flixel_FlxG.sound.muted;
+				flixel_FlxG.save.data.volume = flixel_FlxG.sound.volume;
+				flixel_FlxG.save.flush();
+			}
+		}
+	}
+	,show: function(Silent) {
+		if(Silent == null) {
+			Silent = false;
+		}
+		if(!Silent) {
+			var extension = "";
+			extension = ".ogg";
+			var sound = openfl_Assets.getSound("flixel/sounds/beep" + extension);
+			if(sound != null) {
+				flixel_FlxG.sound.load(sound).play();
+			}
+		}
+		this._timer = 1;
+		this.set_y(0);
+		this.set_visible(true);
+		this.active = true;
+		var globalVolume = Math.round(flixel_FlxG.sound.volume * 10);
+		if(flixel_FlxG.sound.muted) {
+			globalVolume = 0;
+		}
+		var _g1 = 0;
+		var _g = this._bars.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			if(i < globalVolume) {
+				this._bars[i].set_alpha(1);
+			} else {
+				this._bars[i].set_alpha(0.5);
+			}
+		}
+	}
+	,screenCenter: function() {
+		this.set_scaleX(this._defaultScale);
+		this.set_scaleY(this._defaultScale);
+		this.set_x(0.5 * (openfl_Lib.current.stage.stageWidth - this._width * this._defaultScale) - flixel_FlxG.game.get_x());
+	}
+	,__class__: flixel_system_ui_FlxSoundTray
 });
 var flixel_system_ui_FlxSystemButton = function(Icon,UpHandler,ToggleMode) {
 	if(ToggleMode == null) {
@@ -73694,9 +74451,7 @@ openfl_display_DisplayObject.__worldRenderDirty = 0;
 openfl_display_DisplayObject.__worldTransformDirty = 0;
 openfl_display_DisplayObject.__cacheAsBitmapMode = false;
 AssetPaths.data_goes_here__txt = "assets/data/data-goes-here.txt";
-AssetPaths.Asteroid_bak__png = "assets/images/Asteroid-bak.png";
 AssetPaths.Asteroid__png = "assets/images/Asteroid.png";
-AssetPaths.Asteroid1__png = "assets/images/Asteroid1.png";
 AssetPaths.images_go_here__txt = "assets/images/images-go-here.txt";
 AssetPaths.Ship__png = "assets/images/Ship.png";
 AssetPaths.music_goes_here__txt = "assets/music/music-goes-here.txt";
