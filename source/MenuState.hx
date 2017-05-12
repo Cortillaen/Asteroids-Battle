@@ -50,8 +50,8 @@ class MenuState extends FlxState
 		mainGroup.add(instructions);
 		add(mainGroup);
 		
-		var instructionText:FlxText = new FlxText(25, 25, FlxG.width - 25, "Player Blue is controlled with WASD and Ctrl or Space to shoot.\n\n" + 
-			"Player Red is controlled with Numpad 8456 and 0 or Enter to shoot.\n\nYour shots do nothing to the enemy but can change asteroids " + 
+		var instructionText:FlxText = new FlxText(25, 25, FlxG.width - 25, "Player Blue is controlled with WASD and Space to shoot.\n\n" + 
+			"Player Red is controlled with Home, Delete, End, PageDown, and Control to shoot.\n\nYour shots do nothing to the enemy but can change asteroids " + 
 			"to your color.  Colliding with an asteroid of your own color splits it into 3 smaller asteroids, but colliding with one " +
 			"that is white or the enemy's color will destroy you.\n\nFight tactically and create a field of hazards for your opponent!", 22);
 		instructionsGroup.add(instructionText);

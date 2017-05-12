@@ -12,8 +12,9 @@ import flixel.util.FlxSort;
 
 class PlayState extends FlxState
 {
-	static private var P1_KEYS(default, never):Array<Array<FlxKey>> = [[FlxKey.W], [FlxKey.S], [FlxKey.A], [FlxKey.D], [FlxKey.CONTROL, FlxKey.SPACE]];
-	static private var P2_KEYS(default, never):Array<Array<FlxKey>> = [[FlxKey.NUMPADEIGHT], [FlxKey.NUMPADFIVE], [FlxKey.NUMPADFOUR], [FlxKey.NUMPADSIX], [FlxKey.NUMPADZERO, FlxKey.ENTER]];
+	static private var P1_KEYS(default, never):Array<Array<FlxKey>> = [[FlxKey.W], [FlxKey.S], [FlxKey.A], [FlxKey.D], [FlxKey.SPACE]];
+	// original keys (can't used because of HTML5): [[FlxKey.NUMPADEIGHT], [FlxKey.NUMPADFIVE], [FlxKey.NUMPADFOUR], [FlxKey.NUMPADSIX], [FlxKey.NUMPADZERO, FlxKey.ENTER]];
+	static private var P2_KEYS(default, never):Array<Array<FlxKey>> = [[FlxKey.HOME], [FlxKey.END], [FlxKey.DELETE], [FlxKey.PAGEDOWN], [FlxKey.CONTROL]];
 	private var gameOver:Bool;
 	public var players:FlxTypedGroup<Player>;
 	public var bullets:FlxTypedGroup<Bullet>;
