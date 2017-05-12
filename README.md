@@ -5,6 +5,7 @@ After decades of blowing asteroids into progressively smaller chunks of rock, ou
 Two factions coallesced from the following carnage, and now the Blue and Red alliances wage a pointless war amongst the asteroids they used to blast just as pointlessly.  Isn't life grand?
 
 [Give it a try here!](https://cortillaen.github.io/Asteroids-Battle/)
+
 ![Screenshot](/docs/Demo.png?raw=true)
 ## Controls
 * Player Blue controls his ship via W (forward thrust), A (rotate left), D (rotate right), S (brake), and LeftControl/Space (shoot).
