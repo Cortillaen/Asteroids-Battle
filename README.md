@@ -8,8 +8,8 @@ Two factions coallesced from the following carnage, and now the Blue and Red all
 
 ![Screenshot](/docs/Demo.png?raw=true)
 ## Controls
-* Player Blue controls his ship via W (forward thrust), A (rotate left), D (rotate right), S (brake), and LeftControl/Space (shoot).
-* Player Red uses Home, Delete, PageDown, End, and the right Control.
+* Player Blue controls his ship via W (forward thrust), A (rotate left), D (rotate right), S (brake), and Space (shoot).
+* Player Red uses Home, Delete, PageDown, End, and right Control.
 ## Tips
 * Somebody finally figured out how to install spacebrakes on these ships, and they're pretty powerful.  It's about time.
 * A maximum of five shots can exist in a battlefield at once, and firing a sixth will cause the oldest shot to destabilize and vanish, even if it was fired by the enemy.  Nobody really knows why this happens, but there's probably a lesson there about the connectedness and oneness of all things.  Too bad they're all too busy trying to kill each other to notice.
