@@ -1,5 +1,5 @@
 # Asteroid Battle
-A two-player competitive game based on the classic Asteroids written by Trenton Nale as a class project for CSC303 at MSU.
+A two-player competitive game based on the classic Asteroids written by James Nicolas as a class project for CSC303 at MSU.
 ## Game Overview
 After decades of blowing asteroids into progressively smaller chunks of rock, our plucky spaceship pilots realized they could be doing so much more... and decided to blow up each other, instead.  Since everyone uses the same blaster, creating shields to nullify each other's shots was trivial.  To get around this, a new type of blaster was developed that polarizes asteroids to a pilot's custom shield wavelength, allowing pilots to ram the polarized asteroids without harm and produce shrapnel deadly to anyone else.
 Two factions coallesced from the following carnage, and now the Blue and Red alliances wage a pointless war amongst the asteroids they used to blast just as pointlessly.  Isn't life grand?
